@@ -4,20 +4,19 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_relationship**](RelationshipApi.md#create_relationship) | **POST** /relationship | Add a new relationship
-[**get_relationship**](RelationshipApi.md#get_relationship) | **GET** /relationship/{id} | Get relationship by its ID
-[**get_relationships**](RelationshipApi.md#get_relationships) | **GET** /relationship | Get all relationships
-[**get_relationships_by_element**](RelationshipApi.md#get_relationships_by_element) | **GET** /relationship/element/{element_id} | Get all relationships with the given element as either source or target
-[**get_relationships_by_source**](RelationshipApi.md#get_relationships_by_source) | **GET** /relationship/source/{source_id} | Get all relationships with the given element as the source
-[**get_relationships_by_target**](RelationshipApi.md#get_relationships_by_target) | **GET** /relationship/target/{target_id} | Get all relationships with the given element as the target
+[**create_relationship**](RelationshipApi.md#create_relationship) | **POST** /relationships | Add a new relationship
+[**get_relationship**](RelationshipApi.md#get_relationship) | **GET** /relationships/{identifier} | Get relationship by its ID
+[**get_relationships**](RelationshipApi.md#get_relationships) | **GET** /relationships | Get all relationships
+[**get_relationships_by_project**](RelationshipApi.md#get_relationships_by_project) | **GET** /projects/{project_identifier}/relationships | Get all relationships in the project
 
 
 # **create_relationship**
-> Relationship create_relationship(relationship)
+> Relationship create_relationship(body)
 
 Add a new relationship
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
@@ -25,13 +24,13 @@ import sysml_v2_api_client
 from sysml_v2_api_client.rest import ApiException
 from pprint import pprint
 
-# create an instance of the API class
+# Create an instance of the API class
 api_instance = sysml_v2_api_client.RelationshipApi()
-relationship = sysml_v2_api_client.Relationship() # Relationship | 
+body = sysml_v2_api_client.Relationship() # Relationship | 
 
 try:
     # Add a new relationship
-    api_response = api_instance.create_relationship(relationship)
+    api_response = api_instance.create_relationship(body)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling RelationshipApi->create_relationship: %s\n" % e)
@@ -41,7 +40,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **relationship** | [**Relationship**](Relationship.md)|  | 
+ **body** | [**Relationship**](Relationship.md)|  | 
 
 ### Return type
 
@@ -56,14 +55,23 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Created |  -  |
+**415** | The requested content type is not acceptable. |  -  |
+**500** | Internal server error. |  -  |
+**0** | Unexpected response. |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_relationship**
-> Relationship get_relationship(id)
+> Relationship get_relationship(identifier)
 
 Get relationship by its ID
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
@@ -71,13 +79,13 @@ import sysml_v2_api_client
 from sysml_v2_api_client.rest import ApiException
 from pprint import pprint
 
-# create an instance of the API class
+# Create an instance of the API class
 api_instance = sysml_v2_api_client.RelationshipApi()
-id = 'id_example' # str | ID of the relationship
+identifier = 'identifier_example' # str | ID of the relationship
 
 try:
     # Get relationship by its ID
-    api_response = api_instance.get_relationship(id)
+    api_response = api_instance.get_relationship(identifier)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling RelationshipApi->get_relationship: %s\n" % e)
@@ -87,7 +95,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| ID of the relationship | 
+ **identifier** | **str**| ID of the relationship | 
 
 ### Return type
 
@@ -102,6 +110,15 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Ok |  -  |
+**404** | Not found. |  -  |
+**415** | The requested content type is not acceptable. |  -  |
+**500** | Internal server error. |  -  |
+**0** | Unexpected response. |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_relationships**
@@ -110,6 +127,7 @@ No authorization required
 Get all relationships
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
@@ -117,7 +135,7 @@ import sysml_v2_api_client
 from sysml_v2_api_client.rest import ApiException
 from pprint import pprint
 
-# create an instance of the API class
+# Create an instance of the API class
 api_instance = sysml_v2_api_client.RelationshipApi()
 
 try:
@@ -144,14 +162,23 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Ok |  -  |
+**415** | The requested content type is not acceptable. |  -  |
+**500** | Internal server error. |  -  |
+**0** | Unexpected response. |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_relationships_by_element**
-> list[Relationship] get_relationships_by_element(element_id)
+# **get_relationships_by_project**
+> list[Relationship] get_relationships_by_project(project_identifier)
 
-Get all relationships with the given element as either source or target
+Get all relationships in the project
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
@@ -159,23 +186,23 @@ import sysml_v2_api_client
 from sysml_v2_api_client.rest import ApiException
 from pprint import pprint
 
-# create an instance of the API class
+# Create an instance of the API class
 api_instance = sysml_v2_api_client.RelationshipApi()
-element_id = 'element_id_example' # str | ID of the element that is the source or target of relationships
+project_identifier = 'project_identifier_example' # str | ID of the project
 
 try:
-    # Get all relationships with the given element as either source or target
-    api_response = api_instance.get_relationships_by_element(element_id)
+    # Get all relationships in the project
+    api_response = api_instance.get_relationships_by_project(project_identifier)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling RelationshipApi->get_relationships_by_element: %s\n" % e)
+    print("Exception when calling RelationshipApi->get_relationships_by_project: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **element_id** | **str**| ID of the element that is the source or target of relationships | 
+ **project_identifier** | **str**| ID of the project | 
 
 ### Return type
 
@@ -190,97 +217,13 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **get_relationships_by_source**
-> list[Relationship] get_relationships_by_source(source_id)
-
-Get all relationships with the given element as the source
-
-### Example
-```python
-from __future__ import print_function
-import time
-import sysml_v2_api_client
-from sysml_v2_api_client.rest import ApiException
-from pprint import pprint
-
-# create an instance of the API class
-api_instance = sysml_v2_api_client.RelationshipApi()
-source_id = 'source_id_example' # str | ID of the element that is the source of relationships
-
-try:
-    # Get all relationships with the given element as the source
-    api_response = api_instance.get_relationships_by_source(source_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling RelationshipApi->get_relationships_by_source: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **source_id** | **str**| ID of the element that is the source of relationships | 
-
-### Return type
-
-[**list[Relationship]**](Relationship.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **get_relationships_by_target**
-> list[Relationship] get_relationships_by_target(target_id)
-
-Get all relationships with the given element as the target
-
-### Example
-```python
-from __future__ import print_function
-import time
-import sysml_v2_api_client
-from sysml_v2_api_client.rest import ApiException
-from pprint import pprint
-
-# create an instance of the API class
-api_instance = sysml_v2_api_client.RelationshipApi()
-target_id = 'target_id_example' # str | ID of the element that is the target of relationships
-
-try:
-    # Get all relationships with the given element as the target
-    api_response = api_instance.get_relationships_by_target(target_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling RelationshipApi->get_relationships_by_target: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **target_id** | **str**| ID of the element that is the target of relationships | 
-
-### Return type
-
-[**list[Relationship]**](Relationship.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Ok |  -  |
+**415** | The requested content type is not acceptable. |  -  |
+**500** | Internal server error. |  -  |
+**0** | Unexpected response. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

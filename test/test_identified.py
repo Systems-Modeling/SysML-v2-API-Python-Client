@@ -15,12 +15,12 @@ from __future__ import absolute_import
 import unittest
 
 import sysml_v2_api_client
-from sysml_v2_api_client.models.relationship import Relationship  # noqa: E501
+from sysml_v2_api_client.models.identified import Identified  # noqa: E501
 from sysml_v2_api_client.rest import ApiException
 
 
-class TestRelationship(unittest.TestCase):
-    """Relationship unit test stubs"""
+class TestIdentified(unittest.TestCase):
+    """Identified unit test stubs"""
 
     def setUp(self):
         pass
@@ -28,10 +28,10 @@ class TestRelationship(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testRelationship(self):
-        """Test Relationship"""
+    def testIdentified(self):
+        """Test Identified"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = sysml_v2_api_client.models.relationship.Relationship()  # noqa: E501
+        # model = sysml_v2_api_client.models.identified.Identified()  # noqa: E501
         pass
 
 
