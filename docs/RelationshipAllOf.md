@@ -1,11 +1,8 @@
-# Relationship
+# RelationshipAllOf
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **str** |  | [optional] 
-**containing_project** | [**Identified**](Identified.md) |  | [optional] 
-**identifier** | **str** |  | [optional] 
 **source** | [**list[Identified]**](Identified.md) |  | [optional] 
 **target** | [**list[Identified]**](Identified.md) |  | [optional] 
 
