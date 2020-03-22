@@ -16,11 +16,11 @@ import unittest
 import datetime
 
 import sysml_v2_api_client
-from sysml_v2_api_client.models.error import Error  # noqa: E501
+from sysml_v2_api_client.models.element_identity import ElementIdentity  # noqa: E501
 from sysml_v2_api_client.rest import ApiException
 
-class TestError(unittest.TestCase):
-    """Error unit test stubs"""
+class TestElementIdentity(unittest.TestCase):
+    """ElementIdentity unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,21 +29,22 @@ class TestError(unittest.TestCase):
         pass
 
     def make_instance(self, include_optional):
-        """Test Error
+        """Test ElementIdentity
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # model = sysml_v2_api_client.models.error.Error()  # noqa: E501
+        # model = sysml_v2_api_client.models.element_identity.ElementIdentity()  # noqa: E501
         if include_optional :
-            return Error(
-                error = '0'
+            return ElementIdentity(
+                type = 'ElementIdentity', 
+                id = '0'
             )
         else :
-            return Error(
+            return ElementIdentity(
         )
 
-    def testError(self):
-        """Test Error"""
+    def testElementIdentity(self):
+        """Test ElementIdentity"""
         inst_req_only = self.make_instance(include_optional=False)
         inst_req_and_optional = self.make_instance(include_optional=True)
 

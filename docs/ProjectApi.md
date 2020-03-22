@@ -4,70 +4,15 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_project**](ProjectApi.md#create_project) | **POST** /projects | Add a new project
-[**get_project**](ProjectApi.md#get_project) | **GET** /projects/{identifier} | Get project by its ID
-[**get_projects**](ProjectApi.md#get_projects) | **GET** /projects | Get all projects
+[**get_project_by_id**](ProjectApi.md#get_project_by_id) | **GET** /projects/{projectId} | Get project by ID
+[**get_projects**](ProjectApi.md#get_projects) | **GET** /projects | Get projects
+[**post_project**](ProjectApi.md#post_project) | **POST** /projects | Create project
 
 
-# **create_project**
-> Project create_project(body=body)
+# **get_project_by_id**
+> Project get_project_by_id(project_id)
 
-Add a new project
-
-### Example
-
-```python
-from __future__ import print_function
-import time
-import sysml_v2_api_client
-from sysml_v2_api_client.rest import ApiException
-from pprint import pprint
-
-# Create an instance of the API class
-api_instance = sysml_v2_api_client.ProjectApi()
-body = sysml_v2_api_client.Project() # Project |  (optional)
-
-try:
-    # Add a new project
-    api_response = api_instance.create_project(body=body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ProjectApi->create_project: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**Project**](Project.md)|  | [optional] 
-
-### Return type
-
-[**Project**](Project.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**201** | Created |  -  |
-**415** | The requested content type is not acceptable. |  -  |
-**500** | Internal server error. |  -  |
-**0** | Unexpected response. |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **get_project**
-> Project get_project(identifier)
-
-Get project by its ID
+Get project by ID
 
 ### Example
 
@@ -78,23 +23,25 @@ import sysml_v2_api_client
 from sysml_v2_api_client.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = sysml_v2_api_client.ProjectApi()
-identifier = 'identifier_example' # str | ID of the project
+# Enter a context with an instance of the API client
+with sysml_v2_api_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = sysml_v2_api_client.ProjectApi(api_client)
+    project_id = 'project_id_example' # str | ID of the project
 
-try:
-    # Get project by its ID
-    api_response = api_instance.get_project(identifier)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ProjectApi->get_project: %s\n" % e)
+    try:
+        # Get project by ID
+        api_response = api_instance.get_project_by_id(project_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ProjectApi->get_project_by_id: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **identifier** | **str**| ID of the project | 
+ **project_id** | [**str**](.md)| ID of the project | 
 
 ### Return type
 
@@ -123,7 +70,7 @@ No authorization required
 # **get_projects**
 > list[Project] get_projects()
 
-Get all projects
+Get projects
 
 ### Example
 
@@ -134,15 +81,17 @@ import sysml_v2_api_client
 from sysml_v2_api_client.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = sysml_v2_api_client.ProjectApi()
-
-try:
-    # Get all projects
-    api_response = api_instance.get_projects()
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ProjectApi->get_projects: %s\n" % e)
+# Enter a context with an instance of the API client
+with sysml_v2_api_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = sysml_v2_api_client.ProjectApi(api_client)
+    
+    try:
+        # Get projects
+        api_response = api_instance.get_projects()
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ProjectApi->get_projects: %s\n" % e)
 ```
 
 ### Parameters
@@ -165,6 +114,63 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**415** | The requested content type is not acceptable. |  -  |
+**500** | Internal server error. |  -  |
+**0** | Unexpected response. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **post_project**
+> Project post_project(body=body)
+
+Create project
+
+### Example
+
+```python
+from __future__ import print_function
+import time
+import sysml_v2_api_client
+from sysml_v2_api_client.rest import ApiException
+from pprint import pprint
+
+# Enter a context with an instance of the API client
+with sysml_v2_api_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = sysml_v2_api_client.ProjectApi(api_client)
+    body = sysml_v2_api_client.Project() # Project |  (optional)
+
+    try:
+        # Create project
+        api_response = api_instance.post_project(body=body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ProjectApi->post_project: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**Project**](Project.md)|  | [optional] 
+
+### Return type
+
+[**Project**](Project.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Created |  -  |
 **415** | The requested content type is not acceptable. |  -  |
 **500** | Internal server error. |  -  |
 **0** | Unexpected response. |  -  |

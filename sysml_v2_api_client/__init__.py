@@ -14,9 +14,10 @@
 
 from __future__ import absolute_import
 
-__version__ = "2019-09"
+__version__ = "2020-03-rc2"
 
 # import apis into sdk package
+from sysml_v2_api_client.api.commit_api import CommitApi
 from sysml_v2_api_client.api.element_api import ElementApi
 from sysml_v2_api_client.api.project_api import ProjectApi
 from sysml_v2_api_client.api.relationship_api import RelationshipApi
@@ -30,10 +31,13 @@ from sysml_v2_api_client.exceptions import ApiValueError
 from sysml_v2_api_client.exceptions import ApiKeyError
 from sysml_v2_api_client.exceptions import ApiException
 # import models into sdk package
+from sysml_v2_api_client.models.commit import Commit
 from sysml_v2_api_client.models.element import Element
+from sysml_v2_api_client.models.element_identity import ElementIdentity
+from sysml_v2_api_client.models.element_version import ElementVersion
 from sysml_v2_api_client.models.error import Error
 from sysml_v2_api_client.models.identified import Identified
 from sysml_v2_api_client.models.project import Project
+from sysml_v2_api_client.models.record import Record
 from sysml_v2_api_client.models.relationship import Relationship
-from sysml_v2_api_client.models.relationship_all_of import RelationshipAllOf
 

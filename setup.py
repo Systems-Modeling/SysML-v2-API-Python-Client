@@ -13,7 +13,7 @@
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "sysml-v2-api-client"
-VERSION = "2019-09"
+VERSION = "2020-03-rc2"
 # To install the library, run the following
 #
 # python setup.py install
@@ -27,7 +27,8 @@ setup(
     name=NAME,
     version=VERSION,
     description="SysML v2 API and Services",
-    author_email="",
+    author="OpenAPI Generator community",
+    author_email="team@openapitools.org",
     url="",
     keywords=["OpenAPI", "OpenAPI-Generator", "SysML v2 API and Services"],
     install_requires=REQUIRES,

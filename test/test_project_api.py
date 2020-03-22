@@ -28,24 +28,24 @@ class TestProjectApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_create_project(self):
-        """Test case for create_project
+    def test_get_project_by_id(self):
+        """Test case for get_project_by_id
 
-        Add a new project  # noqa: E501
-        """
-        pass
-
-    def test_get_project(self):
-        """Test case for get_project
-
-        Get project by its ID  # noqa: E501
+        Get project by ID  # noqa: E501
         """
         pass
 
     def test_get_projects(self):
         """Test case for get_projects
 
-        Get all projects  # noqa: E501
+        Get projects  # noqa: E501
+        """
+        pass
+
+    def test_post_project(self):
+        """Test case for post_project
+
+        Create project  # noqa: E501
         """
         pass
 

@@ -36,231 +36,18 @@ class RelationshipApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def create_relationship(self, body, **kwargs):  # noqa: E501
-        """Add a new relationship  # noqa: E501
+    def get_relationships_by_project_commit_related_element(self, project_id, commit_id, related_element_id, **kwargs):  # noqa: E501
+        """Get relationships by project, commit, and related element.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_relationship(body, async_req=True)
+        >>> thread = api.get_relationships_by_project_commit_related_element(project_id, commit_id, related_element_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param Relationship body: (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: Relationship
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.create_relationship_with_http_info(body, **kwargs)  # noqa: E501
-
-    def create_relationship_with_http_info(self, body, **kwargs):  # noqa: E501
-        """Add a new relationship  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_relationship_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param Relationship body: (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(Relationship, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_relationship" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'body' is set
-        if ('body' not in local_var_params or
-                local_var_params['body'] is None):
-            raise ApiValueError("Missing the required parameter `body` when calling `create_relationship`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in local_var_params:
-            body_params = local_var_params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = []  # noqa: E501
-
-        return self.api_client.call_api(
-            '/relationships', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='Relationship',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def get_relationship(self, identifier, **kwargs):  # noqa: E501
-        """Get relationship by its ID  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_relationship(identifier, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str identifier: ID of the relationship (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: Relationship
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.get_relationship_with_http_info(identifier, **kwargs)  # noqa: E501
-
-    def get_relationship_with_http_info(self, identifier, **kwargs):  # noqa: E501
-        """Get relationship by its ID  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_relationship_with_http_info(identifier, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str identifier: ID of the relationship (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(Relationship, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['identifier']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_relationship" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'identifier' is set
-        if ('identifier' not in local_var_params or
-                local_var_params['identifier'] is None):
-            raise ApiValueError("Missing the required parameter `identifier` when calling `get_relationship`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'identifier' in local_var_params:
-            path_params['identifier'] = local_var_params['identifier']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = []  # noqa: E501
-
-        return self.api_client.call_api(
-            '/relationships/{identifier}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='Relationship',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def get_relationships(self, **kwargs):  # noqa: E501
-        """Get all relationships  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_relationships(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
+        :param str project_id: ID of the project (required)
+        :param str commit_id: ID of the commit (required)
+        :param str related_element_id: ID of the related element (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -273,17 +60,20 @@ class RelationshipApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_relationships_with_http_info(**kwargs)  # noqa: E501
+        return self.get_relationships_by_project_commit_related_element_with_http_info(project_id, commit_id, related_element_id, **kwargs)  # noqa: E501
 
-    def get_relationships_with_http_info(self, **kwargs):  # noqa: E501
-        """Get all relationships  # noqa: E501
+    def get_relationships_by_project_commit_related_element_with_http_info(self, project_id, commit_id, related_element_id, **kwargs):  # noqa: E501
+        """Get relationships by project, commit, and related element.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_relationships_with_http_info(async_req=True)
+        >>> thread = api.get_relationships_by_project_commit_related_element_with_http_info(project_id, commit_id, related_element_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str project_id: ID of the project (required)
+        :param str commit_id: ID of the commit (required)
+        :param str related_element_id: ID of the related element (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -300,7 +90,7 @@ class RelationshipApi(object):
 
         local_var_params = locals()
 
-        all_params = []  # noqa: E501
+        all_params = ['project_id', 'commit_id', 'related_element_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -310,14 +100,32 @@ class RelationshipApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_relationships" % key
+                    " to method get_relationships_by_project_commit_related_element" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
+        # verify the required parameter 'project_id' is set
+        if self.api_client.client_side_validation and ('project_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['project_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `project_id` when calling `get_relationships_by_project_commit_related_element`")  # noqa: E501
+        # verify the required parameter 'commit_id' is set
+        if self.api_client.client_side_validation and ('commit_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['commit_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `commit_id` when calling `get_relationships_by_project_commit_related_element`")  # noqa: E501
+        # verify the required parameter 'related_element_id' is set
+        if self.api_client.client_side_validation and ('related_element_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['related_element_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `related_element_id` when calling `get_relationships_by_project_commit_related_element`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
+        if 'project_id' in local_var_params:
+            path_params['projectId'] = local_var_params['project_id']  # noqa: E501
+        if 'commit_id' in local_var_params:
+            path_params['commitId'] = local_var_params['commit_id']  # noqa: E501
+        if 'related_element_id' in local_var_params:
+            path_params['relatedElementId'] = local_var_params['related_element_id']  # noqa: E501
 
         query_params = []
 
@@ -335,113 +143,7 @@ class RelationshipApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/relationships', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='list[Relationship]',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def get_relationships_by_project(self, project_identifier, **kwargs):  # noqa: E501
-        """Get all relationships in the project  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_relationships_by_project(project_identifier, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str project_identifier: ID of the project (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: list[Relationship]
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.get_relationships_by_project_with_http_info(project_identifier, **kwargs)  # noqa: E501
-
-    def get_relationships_by_project_with_http_info(self, project_identifier, **kwargs):  # noqa: E501
-        """Get all relationships in the project  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_relationships_by_project_with_http_info(project_identifier, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str project_identifier: ID of the project (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(list[Relationship], status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['project_identifier']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_relationships_by_project" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'project_identifier' is set
-        if ('project_identifier' not in local_var_params or
-                local_var_params['project_identifier'] is None):
-            raise ApiValueError("Missing the required parameter `project_identifier` when calling `get_relationships_by_project`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'project_identifier' in local_var_params:
-            path_params['project_identifier'] = local_var_params['project_identifier']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = []  # noqa: E501
-
-        return self.api_client.call_api(
-            '/projects/{project_identifier}/relationships', 'GET',
+            '/projects/{projectId}/commits/{commitId}/elements/{relatedElementId}/relationships', 'GET',
             path_params,
             query_params,
             header_params,
