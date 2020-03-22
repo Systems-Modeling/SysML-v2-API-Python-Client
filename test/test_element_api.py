@@ -28,38 +28,17 @@ class TestElementApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_create_element(self):
-        """Test case for create_element
+    def test_get_element_by_project_commit_id(self):
+        """Test case for get_element_by_project_commit_id
 
-        Add a new element  # noqa: E501
+        Get element by project, commit and ID  # noqa: E501
         """
         pass
 
-    def test_get_element(self):
-        """Test case for get_element
+    def test_get_elements_by_project_commit(self):
+        """Test case for get_elements_by_project_commit
 
-        Get element by its ID  # noqa: E501
-        """
-        pass
-
-    def test_get_element_by_project_and_id(self):
-        """Test case for get_element_by_project_and_id
-
-        Get element by project ID and its ID  # noqa: E501
-        """
-        pass
-
-    def test_get_elements(self):
-        """Test case for get_elements
-
-        Get all elements  # noqa: E501
-        """
-        pass
-
-    def test_get_elements_in_project(self):
-        """Test case for get_elements_in_project
-
-        Get all elements in the project  # noqa: E501
+        Get elements by project and commit  # noqa: E501
         """
         pass
 

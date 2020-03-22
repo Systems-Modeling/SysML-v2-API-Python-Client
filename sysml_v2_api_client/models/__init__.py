@@ -14,9 +14,12 @@
 from __future__ import absolute_import
 
 # import models into model package
+from sysml_v2_api_client.models.commit import Commit
 from sysml_v2_api_client.models.element import Element
+from sysml_v2_api_client.models.element_identity import ElementIdentity
+from sysml_v2_api_client.models.element_version import ElementVersion
 from sysml_v2_api_client.models.error import Error
 from sysml_v2_api_client.models.identified import Identified
 from sysml_v2_api_client.models.project import Project
+from sysml_v2_api_client.models.record import Record
 from sysml_v2_api_client.models.relationship import Relationship
-from sysml_v2_api_client.models.relationship_all_of import RelationshipAllOf
