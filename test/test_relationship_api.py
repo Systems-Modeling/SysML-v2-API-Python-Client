@@ -28,31 +28,10 @@ class TestRelationshipApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_create_relationship(self):
-        """Test case for create_relationship
+    def test_get_relationships_by_project_commit_related_element(self):
+        """Test case for get_relationships_by_project_commit_related_element
 
-        Add a new relationship  # noqa: E501
-        """
-        pass
-
-    def test_get_relationship(self):
-        """Test case for get_relationship
-
-        Get relationship by its ID  # noqa: E501
-        """
-        pass
-
-    def test_get_relationships(self):
-        """Test case for get_relationships
-
-        Get all relationships  # noqa: E501
-        """
-        pass
-
-    def test_get_relationships_by_project(self):
-        """Test case for get_relationships_by_project
-
-        Get all relationships in the project  # noqa: E501
+        Get relationships by project, commit, and related element.  # noqa: E501
         """
         pass
 

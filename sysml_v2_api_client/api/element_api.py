@@ -36,16 +36,18 @@ class ElementApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def create_element(self, body, **kwargs):  # noqa: E501
-        """Add a new element  # noqa: E501
+    def get_element_by_project_commit_id(self, project_id, commit_id, element_id, **kwargs):  # noqa: E501
+        """Get element by project, commit and ID  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_element(body, async_req=True)
+        >>> thread = api.get_element_by_project_commit_id(project_id, commit_id, element_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param dict(str, object) body: (required)
+        :param str project_id: ID of the project (required)
+        :param str commit_id: ID of the commit (required)
+        :param str element_id: ID of the element (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -58,18 +60,20 @@ class ElementApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_element_with_http_info(body, **kwargs)  # noqa: E501
+        return self.get_element_by_project_commit_id_with_http_info(project_id, commit_id, element_id, **kwargs)  # noqa: E501
 
-    def create_element_with_http_info(self, body, **kwargs):  # noqa: E501
-        """Add a new element  # noqa: E501
+    def get_element_by_project_commit_id_with_http_info(self, project_id, commit_id, element_id, **kwargs):  # noqa: E501
+        """Get element by project, commit and ID  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_element_with_http_info(body, async_req=True)
+        >>> thread = api.get_element_by_project_commit_id_with_http_info(project_id, commit_id, element_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param dict(str, object) body: (required)
+        :param str project_id: ID of the project (required)
+        :param str commit_id: ID of the commit (required)
+        :param str element_id: ID of the element (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -86,7 +90,7 @@ class ElementApi(object):
 
         local_var_params = locals()
 
-        all_params = ['body']  # noqa: E501
+        all_params = ['project_id', 'commit_id', 'element_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -96,18 +100,32 @@ class ElementApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method create_element" % key
+                    " to method get_element_by_project_commit_id" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'body' is set
-        if ('body' not in local_var_params or
-                local_var_params['body'] is None):
-            raise ApiValueError("Missing the required parameter `body` when calling `create_element`")  # noqa: E501
+        # verify the required parameter 'project_id' is set
+        if self.api_client.client_side_validation and ('project_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['project_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `project_id` when calling `get_element_by_project_commit_id`")  # noqa: E501
+        # verify the required parameter 'commit_id' is set
+        if self.api_client.client_side_validation and ('commit_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['commit_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `commit_id` when calling `get_element_by_project_commit_id`")  # noqa: E501
+        # verify the required parameter 'element_id' is set
+        if self.api_client.client_side_validation and ('element_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['element_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `element_id` when calling `get_element_by_project_commit_id`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
+        if 'project_id' in local_var_params:
+            path_params['projectId'] = local_var_params['project_id']  # noqa: E501
+        if 'commit_id' in local_var_params:
+            path_params['commitId'] = local_var_params['commit_id']  # noqa: E501
+        if 'element_id' in local_var_params:
+            path_params['elementId'] = local_var_params['element_id']  # noqa: E501
 
         query_params = []
 
@@ -117,21 +135,15 @@ class ElementApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'body' in local_var_params:
-            body_params = local_var_params['body']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
 
         # Authentication setting
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/elements', 'POST',
+            '/projects/{projectId}/commits/{commitId}/elements/{elementId}', 'GET',
             path_params,
             query_params,
             header_params,
@@ -146,16 +158,17 @@ class ElementApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_element(self, identifier, **kwargs):  # noqa: E501
-        """Get element by its ID  # noqa: E501
+    def get_elements_by_project_commit(self, project_id, commit_id, **kwargs):  # noqa: E501
+        """Get elements by project and commit  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_element(identifier, async_req=True)
+        >>> thread = api.get_elements_by_project_commit(project_id, commit_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str identifier: ID of the element (required)
+        :param str project_id: ID of the project (required)
+        :param str commit_id: ID of the commit (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -168,18 +181,19 @@ class ElementApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_element_with_http_info(identifier, **kwargs)  # noqa: E501
+        return self.get_elements_by_project_commit_with_http_info(project_id, commit_id, **kwargs)  # noqa: E501
 
-    def get_element_with_http_info(self, identifier, **kwargs):  # noqa: E501
-        """Get element by its ID  # noqa: E501
+    def get_elements_by_project_commit_with_http_info(self, project_id, commit_id, **kwargs):  # noqa: E501
+        """Get elements by project and commit  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_element_with_http_info(identifier, async_req=True)
+        >>> thread = api.get_elements_by_project_commit_with_http_info(project_id, commit_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str identifier: ID of the element (required)
+        :param str project_id: ID of the project (required)
+        :param str commit_id: ID of the commit (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -196,7 +210,7 @@ class ElementApi(object):
 
         local_var_params = locals()
 
-        all_params = ['identifier']  # noqa: E501
+        all_params = ['project_id', 'commit_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -206,20 +220,26 @@ class ElementApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_element" % key
+                    " to method get_elements_by_project_commit" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'identifier' is set
-        if ('identifier' not in local_var_params or
-                local_var_params['identifier'] is None):
-            raise ApiValueError("Missing the required parameter `identifier` when calling `get_element`")  # noqa: E501
+        # verify the required parameter 'project_id' is set
+        if self.api_client.client_side_validation and ('project_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['project_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `project_id` when calling `get_elements_by_project_commit`")  # noqa: E501
+        # verify the required parameter 'commit_id' is set
+        if self.api_client.client_side_validation and ('commit_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['commit_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `commit_id` when calling `get_elements_by_project_commit`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'identifier' in local_var_params:
-            path_params['identifier'] = local_var_params['identifier']  # noqa: E501
+        if 'project_id' in local_var_params:
+            path_params['projectId'] = local_var_params['project_id']  # noqa: E501
+        if 'commit_id' in local_var_params:
+            path_params['commitId'] = local_var_params['commit_id']  # noqa: E501
 
         query_params = []
 
@@ -237,325 +257,7 @@ class ElementApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/elements/{identifier}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='Element',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def get_element_by_project_and_id(self, project_identifier, element_identifier, **kwargs):  # noqa: E501
-        """Get element by project ID and its ID  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_element_by_project_and_id(project_identifier, element_identifier, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str project_identifier: ID of the project (required)
-        :param str element_identifier: ID of the element (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: Element
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.get_element_by_project_and_id_with_http_info(project_identifier, element_identifier, **kwargs)  # noqa: E501
-
-    def get_element_by_project_and_id_with_http_info(self, project_identifier, element_identifier, **kwargs):  # noqa: E501
-        """Get element by project ID and its ID  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_element_by_project_and_id_with_http_info(project_identifier, element_identifier, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str project_identifier: ID of the project (required)
-        :param str element_identifier: ID of the element (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(Element, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['project_identifier', 'element_identifier']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_element_by_project_and_id" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'project_identifier' is set
-        if ('project_identifier' not in local_var_params or
-                local_var_params['project_identifier'] is None):
-            raise ApiValueError("Missing the required parameter `project_identifier` when calling `get_element_by_project_and_id`")  # noqa: E501
-        # verify the required parameter 'element_identifier' is set
-        if ('element_identifier' not in local_var_params or
-                local_var_params['element_identifier'] is None):
-            raise ApiValueError("Missing the required parameter `element_identifier` when calling `get_element_by_project_and_id`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'project_identifier' in local_var_params:
-            path_params['project_identifier'] = local_var_params['project_identifier']  # noqa: E501
-        if 'element_identifier' in local_var_params:
-            path_params['element_identifier'] = local_var_params['element_identifier']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = []  # noqa: E501
-
-        return self.api_client.call_api(
-            '/projects/{project_identifier}/elements/{element_identifier}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='Element',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def get_elements(self, **kwargs):  # noqa: E501
-        """Get all elements  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_elements(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: list[Element]
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.get_elements_with_http_info(**kwargs)  # noqa: E501
-
-    def get_elements_with_http_info(self, **kwargs):  # noqa: E501
-        """Get all elements  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_elements_with_http_info(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(list[Element], status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = []  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_elements" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = []  # noqa: E501
-
-        return self.api_client.call_api(
-            '/elements', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='list[Element]',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def get_elements_in_project(self, project_identifier, **kwargs):  # noqa: E501
-        """Get all elements in the project  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_elements_in_project(project_identifier, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str project_identifier: ID of the project (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: Element
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.get_elements_in_project_with_http_info(project_identifier, **kwargs)  # noqa: E501
-
-    def get_elements_in_project_with_http_info(self, project_identifier, **kwargs):  # noqa: E501
-        """Get all elements in the project  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_elements_in_project_with_http_info(project_identifier, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str project_identifier: ID of the project (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(Element, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['project_identifier']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_elements_in_project" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'project_identifier' is set
-        if ('project_identifier' not in local_var_params or
-                local_var_params['project_identifier'] is None):
-            raise ApiValueError("Missing the required parameter `project_identifier` when calling `get_elements_in_project`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'project_identifier' in local_var_params:
-            path_params['project_identifier'] = local_var_params['project_identifier']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = []  # noqa: E501
-
-        return self.api_client.call_api(
-            '/projects/{project_identifier}/elements', 'GET',
+            '/projects/{projectId}/commits/{commitId}/elements', 'GET',
             path_params,
             query_params,
             header_params,

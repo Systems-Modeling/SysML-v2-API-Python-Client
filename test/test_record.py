@@ -16,11 +16,11 @@ import unittest
 import datetime
 
 import sysml_v2_api_client
-from sysml_v2_api_client.models.error import Error  # noqa: E501
+from sysml_v2_api_client.models.record import Record  # noqa: E501
 from sysml_v2_api_client.rest import ApiException
 
-class TestError(unittest.TestCase):
-    """Error unit test stubs"""
+class TestRecord(unittest.TestCase):
+    """Record unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,21 +29,21 @@ class TestError(unittest.TestCase):
         pass
 
     def make_instance(self, include_optional):
-        """Test Error
+        """Test Record
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # model = sysml_v2_api_client.models.error.Error()  # noqa: E501
+        # model = sysml_v2_api_client.models.record.Record()  # noqa: E501
         if include_optional :
-            return Error(
-                error = '0'
+            return Record(
+                id = '0'
             )
         else :
-            return Error(
+            return Record(
         )
 
-    def testError(self):
-        """Test Error"""
+    def testRecord(self):
+        """Test Record"""
         inst_req_only = self.make_instance(include_optional=False)
         inst_req_and_optional = self.make_instance(include_optional=True)
 

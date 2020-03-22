@@ -13,11 +13,11 @@
 from __future__ import absolute_import
 
 import unittest
+import datetime
 
 import sysml_v2_api_client
 from sysml_v2_api_client.models.relationship import Relationship  # noqa: E501
 from sysml_v2_api_client.rest import ApiException
-
 
 class TestRelationship(unittest.TestCase):
     """Relationship unit test stubs"""
@@ -28,11 +28,33 @@ class TestRelationship(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def make_instance(self, include_optional):
+        """Test Relationship
+            include_option is a boolean, when False only required
+            params are included, when True both required and
+            optional params are included """
+        # model = sysml_v2_api_client.models.relationship.Relationship()  # noqa: E501
+        if include_optional :
+            return Relationship(
+                type = '0', 
+                identifier = '0', 
+                source = [
+                    sysml_v2_api_client.models.identified.Identified(
+                        identifier = '0', )
+                    ], 
+                target = [
+                    sysml_v2_api_client.models.identified.Identified(
+                        identifier = '0', )
+                    ]
+            )
+        else :
+            return Relationship(
+        )
+
     def testRelationship(self):
         """Test Relationship"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = sysml_v2_api_client.models.relationship.Relationship()  # noqa: E501
-        pass
+        inst_req_only = self.make_instance(include_optional=False)
+        inst_req_and_optional = self.make_instance(include_optional=True)
 
 
 if __name__ == '__main__':
