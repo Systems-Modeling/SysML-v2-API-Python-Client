@@ -43,8 +43,8 @@ commit_id = 'commit_id_example' # str | ID of the commit
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_id** | **str**| ID of the project | 
- **commit_id** | **str**| ID of the commit | 
+ **project_id** | [**str**](.md)| ID of the project | 
+ **commit_id** | [**str**](.md)| ID of the commit | 
 
 ### Return type
 
@@ -71,7 +71,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_commits_by_project**
-> Commit get_commits_by_project(project_id)
+> list[Commit] get_commits_by_project(project_id)
 
 Get commits by project
 
@@ -106,7 +106,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Commit**](Commit.md)
+[**list[Commit]**](Commit.md)
 
 ### Authorization
 
@@ -160,7 +160,7 @@ with sysml_v2_api_client.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_id** | **str**| ID of the project | 
+ **project_id** | [**str**](.md)| ID of the project | 
 
 ### Return type
 
