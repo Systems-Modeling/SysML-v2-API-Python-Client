@@ -71,7 +71,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_elements_by_project_commit**
-> Element get_elements_by_project_commit(project_id, commit_id)
+> list[Element] get_elements_by_project_commit(project_id, commit_id)
 
 Get elements by project and commit
 
@@ -108,7 +108,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Element**](Element.md)
+[**list[Element]**](Element.md)
 
 ### Authorization
 
