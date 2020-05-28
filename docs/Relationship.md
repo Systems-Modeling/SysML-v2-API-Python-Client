@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | **str** |  | [optional] 
+**id** | **str** |  | [optional] 
 **identifier** | **str** |  | [optional] 
 **source** | [**list[Identified]**](Identified.md) |  | [optional] 
 **target** | [**list[Identified]**](Identified.md) |  | [optional] 

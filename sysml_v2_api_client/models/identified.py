@@ -33,45 +33,45 @@ class Identified(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'identifier': 'str'
+        'id': 'str'
     }
 
     attribute_map = {
-        'identifier': 'identifier'
+        'id': '@id'
     }
 
-    def __init__(self, identifier=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, local_vars_configuration=None):  # noqa: E501
         """Identified - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._identifier = None
+        self._id = None
         self.discriminator = None
 
-        if identifier is not None:
-            self.identifier = identifier
+        if id is not None:
+            self.id = id
 
     @property
-    def identifier(self):
-        """Gets the identifier of this Identified.  # noqa: E501
+    def id(self):
+        """Gets the id of this Identified.  # noqa: E501
 
 
-        :return: The identifier of this Identified.  # noqa: E501
+        :return: The id of this Identified.  # noqa: E501
         :rtype: str
         """
-        return self._identifier
+        return self._id
 
-    @identifier.setter
-    def identifier(self, identifier):
-        """Sets the identifier of this Identified.
+    @id.setter
+    def id(self, id):
+        """Sets the id of this Identified.
 
 
-        :param identifier: The identifier of this Identified.  # noqa: E501
+        :param id: The id of this Identified.  # noqa: E501
         :type: str
         """
 
-        self._identifier = identifier
+        self._id = id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

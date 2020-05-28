@@ -42,6 +42,13 @@ class TestElementApi(unittest.TestCase):
         """
         pass
 
+    def test_get_roots_by_project_commit(self):
+        """Test case for get_roots_by_project_commit
+
+        Get root elements by project and commit  # noqa: E501
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

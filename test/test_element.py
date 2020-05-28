@@ -37,6 +37,7 @@ class TestElement(unittest.TestCase):
         if include_optional :
             return Element(
                 type = '0', 
+                id = '0', 
                 identifier = '0'
             )
         else :

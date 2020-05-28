@@ -37,14 +37,15 @@ class TestRelationship(unittest.TestCase):
         if include_optional :
             return Relationship(
                 type = '0', 
+                id = '0', 
                 identifier = '0', 
                 source = [
                     sysml_v2_api_client.models.identified.Identified(
-                        identifier = '0', )
+                        @id = '0', )
                     ], 
                 target = [
                     sysml_v2_api_client.models.identified.Identified(
-                        identifier = '0', )
+                        @id = '0', )
                     ]
             )
         else :
