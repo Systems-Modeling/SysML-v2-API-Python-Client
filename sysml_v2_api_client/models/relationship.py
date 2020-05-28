@@ -34,6 +34,7 @@ class Relationship(object):
     """
     openapi_types = {
         'type': 'str',
+        'id': 'str',
         'identifier': 'str',
         'source': 'list[Identified]',
         'target': 'list[Identified]'
@@ -41,18 +42,20 @@ class Relationship(object):
 
     attribute_map = {
         'type': '@type',
+        'id': '@id',
         'identifier': 'identifier',
         'source': 'source',
         'target': 'target'
     }
 
-    def __init__(self, type=None, identifier=None, source=None, target=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, type=None, id=None, identifier=None, source=None, target=None, local_vars_configuration=None):  # noqa: E501
         """Relationship - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._type = None
+        self._id = None
         self._identifier = None
         self._source = None
         self._target = None
@@ -60,6 +63,8 @@ class Relationship(object):
 
         if type is not None:
             self.type = type
+        if id is not None:
+            self.id = id
         if identifier is not None:
             self.identifier = identifier
         if source is not None:
@@ -87,6 +92,27 @@ class Relationship(object):
         """
 
         self._type = type
+
+    @property
+    def id(self):
+        """Gets the id of this Relationship.  # noqa: E501
+
+
+        :return: The id of this Relationship.  # noqa: E501
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this Relationship.
+
+
+        :param id: The id of this Relationship.  # noqa: E501
+        :type: str
+        """
+
+        self._id = id
 
     @property
     def identifier(self):

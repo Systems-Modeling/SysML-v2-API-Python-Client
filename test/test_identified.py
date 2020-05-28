@@ -36,7 +36,7 @@ class TestIdentified(unittest.TestCase):
         # model = sysml_v2_api_client.models.identified.Identified()  # noqa: E501
         if include_optional :
             return Identified(
-                identifier = '0'
+                id = '0'
             )
         else :
             return Identified(
