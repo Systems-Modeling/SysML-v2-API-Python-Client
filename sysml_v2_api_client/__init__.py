@@ -14,7 +14,7 @@
 
 from __future__ import absolute_import
 
-__version__ = "2020-05"
+__version__ = "2020-06"
 
 # import apis into sdk package
 from sysml_v2_api_client.api.commit_api import CommitApi
