@@ -48,6 +48,7 @@ class RelationshipApi(object):
         :param str project_id: ID of the project (required)
         :param str commit_id: ID of the commit (required)
         :param str related_element_id: ID of the related element (required)
+        :param str direction: Filter for relationships that are incoming (in), outgoing (out), or both relative to the related element
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -74,6 +75,7 @@ class RelationshipApi(object):
         :param str project_id: ID of the project (required)
         :param str commit_id: ID of the commit (required)
         :param str related_element_id: ID of the related element (required)
+        :param str direction: Filter for relationships that are incoming (in), outgoing (out), or both relative to the related element
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -90,7 +92,7 @@ class RelationshipApi(object):
 
         local_var_params = locals()
 
-        all_params = ['project_id', 'commit_id', 'related_element_id']  # noqa: E501
+        all_params = ['project_id', 'commit_id', 'related_element_id', 'direction']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -128,6 +130,8 @@ class RelationshipApi(object):
             path_params['relatedElementId'] = local_var_params['related_element_id']  # noqa: E501
 
         query_params = []
+        if 'direction' in local_var_params and local_var_params['direction'] is not None:  # noqa: E501
+            query_params.append(('direction', local_var_params['direction']))  # noqa: E501
 
         header_params = {}
 

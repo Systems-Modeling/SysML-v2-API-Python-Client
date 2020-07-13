@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **get_relationships_by_project_commit_related_element**
-> list[Relationship] get_relationships_by_project_commit_related_element(project_id, commit_id, related_element_id)
+> list[Relationship] get_relationships_by_project_commit_related_element(project_id, commit_id, related_element_id, direction=direction)
 
 Get relationships by project, commit, and related element.
 
@@ -28,10 +28,11 @@ with sysml_v2_api_client.ApiClient() as api_client:
     project_id = 'project_id_example' # str | ID of the project
 commit_id = 'commit_id_example' # str | ID of the commit
 related_element_id = 'related_element_id_example' # str | ID of the related element
+direction = 'both' # str | Filter for relationships that are incoming (in), outgoing (out), or both relative to the related element (optional) (default to 'both')
 
     try:
         # Get relationships by project, commit, and related element.
-        api_response = api_instance.get_relationships_by_project_commit_related_element(project_id, commit_id, related_element_id)
+        api_response = api_instance.get_relationships_by_project_commit_related_element(project_id, commit_id, related_element_id, direction=direction)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling RelationshipApi->get_relationships_by_project_commit_related_element: %s\n" % e)
@@ -44,6 +45,7 @@ Name | Type | Description  | Notes
  **project_id** | [**str**](.md)| ID of the project | 
  **commit_id** | [**str**](.md)| ID of the commit | 
  **related_element_id** | [**str**](.md)| ID of the related element | 
+ **direction** | **str**| Filter for relationships that are incoming (in), outgoing (out), or both relative to the related element | [optional] [default to &#39;both&#39;]
 
 ### Return type
 
