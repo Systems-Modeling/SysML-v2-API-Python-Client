@@ -1,13 +1,14 @@
-# Commit
+# Query
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | **str** |  | [optional] 
-**change** | [**list[ElementVersion]**](ElementVersion.md) |  | [optional] 
 **containing_project** | [**CommitContainingProject**](CommitContainingProject.md) |  | [optional] 
 **id** | **str** |  | [optional] 
-**previous_commit** | [**Record**](Record.md) |  | [optional] 
+**scope** | [**list[ElementIdentity]**](ElementIdentity.md) |  | [optional] 
+**select** | **list[str]** |  | [optional] 
+**where** | [**Constraint**](Constraint.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

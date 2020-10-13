@@ -6,4 +6,5 @@ from __future__ import absolute_import
 from sysml_v2_api_client.api.commit_api import CommitApi
 from sysml_v2_api_client.api.element_api import ElementApi
 from sysml_v2_api_client.api.project_api import ProjectApi
+from sysml_v2_api_client.api.query_api import QueryApi
 from sysml_v2_api_client.api.relationship_api import RelationshipApi

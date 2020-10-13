@@ -31,7 +31,7 @@ class TestRelationshipApi(unittest.TestCase):
     def test_get_relationships_by_project_commit_related_element(self):
         """Test case for get_relationships_by_project_commit_related_element
 
-        Get relationships by project, commit, and related element.  # noqa: E501
+        Get relationships by project, commit, and related element  # noqa: E501
         """
         pass
 
