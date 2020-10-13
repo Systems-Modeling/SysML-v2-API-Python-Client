@@ -18,7 +18,7 @@ import re  # noqa: F401
 import six
 
 from sysml_v2_api_client.api_client import ApiClient
-from sysml_v2_api_client.exceptions import (
+from sysml_v2_api_client.exceptions import (  # noqa: F401
     ApiTypeError,
     ApiValueError
 )
@@ -37,7 +37,7 @@ class RelationshipApi(object):
         self.api_client = api_client
 
     def get_relationships_by_project_commit_related_element(self, project_id, commit_id, related_element_id, **kwargs):  # noqa: E501
-        """Get relationships by project, commit, and related element.  # noqa: E501
+        """Get relationships by project, commit, and related element  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -64,7 +64,7 @@ class RelationshipApi(object):
         return self.get_relationships_by_project_commit_related_element_with_http_info(project_id, commit_id, related_element_id, **kwargs)  # noqa: E501
 
     def get_relationships_by_project_commit_related_element_with_http_info(self, project_id, commit_id, related_element_id, **kwargs):  # noqa: E501
-        """Get relationships by project, commit, and related element.  # noqa: E501
+        """Get relationships by project, commit, and related element  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -92,11 +92,20 @@ class RelationshipApi(object):
 
         local_var_params = locals()
 
-        all_params = ['project_id', 'commit_id', 'related_element_id', 'direction']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'project_id',
+            'commit_id',
+            'related_element_id',
+            'direction'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:

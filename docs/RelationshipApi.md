@@ -4,13 +4,13 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_relationships_by_project_commit_related_element**](RelationshipApi.md#get_relationships_by_project_commit_related_element) | **GET** /projects/{projectId}/commits/{commitId}/elements/{relatedElementId}/relationships | Get relationships by project, commit, and related element.
+[**get_relationships_by_project_commit_related_element**](RelationshipApi.md#get_relationships_by_project_commit_related_element) | **GET** /projects/{projectId}/commits/{commitId}/elements/{relatedElementId}/relationships | Get relationships by project, commit, and related element
 
 
 # **get_relationships_by_project_commit_related_element**
 > list[Relationship] get_relationships_by_project_commit_related_element(project_id, commit_id, related_element_id, direction=direction)
 
-Get relationships by project, commit, and related element.
+Get relationships by project, commit, and related element
 
 ### Example
 
@@ -20,6 +20,12 @@ import time
 import sysml_v2_api_client
 from sysml_v2_api_client.rest import ApiException
 from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = sysml_v2_api_client.Configuration(
+    host = "http://localhost"
+)
+
 
 # Enter a context with an instance of the API client
 with sysml_v2_api_client.ApiClient() as api_client:
@@ -31,7 +37,7 @@ related_element_id = 'related_element_id_example' # str | ID of the related elem
 direction = 'both' # str | Filter for relationships that are incoming (in), outgoing (out), or both relative to the related element (optional) (default to 'both')
 
     try:
-        # Get relationships by project, commit, and related element.
+        # Get relationships by project, commit, and related element
         api_response = api_instance.get_relationships_by_project_commit_related_element(project_id, commit_id, related_element_id, direction=direction)
         pprint(api_response)
     except ApiException as e:
