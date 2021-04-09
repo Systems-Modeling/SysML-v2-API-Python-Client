@@ -34,29 +34,34 @@ class Project(object):
     """
     openapi_types = {
         'type': 'str',
+        'description': 'str',
         'id': 'str',
         'name': 'str'
     }
 
     attribute_map = {
         'type': '@type',
+        'description': 'description',
         'id': 'id',
         'name': 'name'
     }
 
-    def __init__(self, type=None, id=None, name=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, type=None, description=None, id=None, name=None, local_vars_configuration=None):  # noqa: E501
         """Project - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._type = None
+        self._description = None
         self._id = None
         self._name = None
         self.discriminator = None
 
         if type is not None:
             self.type = type
+        if description is not None:
+            self.description = description
         if id is not None:
             self.id = id
         if name is not None:
@@ -88,6 +93,27 @@ class Project(object):
             )
 
         self._type = type
+
+    @property
+    def description(self):
+        """Gets the description of this Project.  # noqa: E501
+
+
+        :return: The description of this Project.  # noqa: E501
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """Sets the description of this Project.
+
+
+        :param description: The description of this Project.  # noqa: E501
+        :type: str
+        """
+
+        self._description = description
 
     @property
     def id(self):

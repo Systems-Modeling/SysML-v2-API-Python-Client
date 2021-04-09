@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **get_queries_by_project**
-> list[Query] get_queries_by_project(project_id)
+> list[Query] get_queries_by_project(project_id, page_after=page_after, page_before=page_before, page_size=page_size)
 
 Get queries by project
 
@@ -37,10 +37,13 @@ with sysml_v2_api_client.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = sysml_v2_api_client.QueryApi(api_client)
     project_id = 'project_id_example' # str | ID of the project
+page_after = 'page_after_example' # str | Page after (optional)
+page_before = 'page_before_example' # str | Page before (optional)
+page_size = 56 # int | Page size (optional)
 
     try:
         # Get queries by project
-        api_response = api_instance.get_queries_by_project(project_id)
+        api_response = api_instance.get_queries_by_project(project_id, page_after=page_after, page_before=page_before, page_size=page_size)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling QueryApi->get_queries_by_project: %s\n" % e)
@@ -51,6 +54,9 @@ with sysml_v2_api_client.ApiClient() as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | [**str**](.md)| ID of the project | 
+ **page_after** | **str**| Page after | [optional] 
+ **page_before** | **str**| Page before | [optional] 
+ **page_size** | **int**| Page size | [optional] 
 
 ### Return type
 
@@ -197,7 +203,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/ld+json, application/json
+ - **Accept**: application/json, application/ld+json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -265,7 +271,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/ld+json, application/json
+ - **Accept**: application/json, application/ld+json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -335,7 +341,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/ld+json, application/json
+ - **Accept**: application/json, application/ld+json
 
 ### HTTP response details
 | Status code | Description | Response headers |

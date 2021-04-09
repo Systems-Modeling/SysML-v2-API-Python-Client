@@ -37,6 +37,7 @@ class TestProject(unittest.TestCase):
         if include_optional :
             return Project(
                 type = 'Project', 
+                description = '0', 
                 id = '0', 
                 name = '0'
             )
