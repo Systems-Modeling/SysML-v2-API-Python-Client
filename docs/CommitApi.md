@@ -77,7 +77,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_commits_by_project**
-> list[Commit] get_commits_by_project(project_id)
+> list[Commit] get_commits_by_project(project_id, page_after=page_after, page_before=page_before, page_size=page_size)
 
 Get commits by project
 
@@ -101,10 +101,13 @@ with sysml_v2_api_client.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = sysml_v2_api_client.CommitApi(api_client)
     project_id = 'project_id_example' # str | ID of the project
+page_after = 'page_after_example' # str | Page after (optional)
+page_before = 'page_before_example' # str | Page before (optional)
+page_size = 56 # int | Page size (optional)
 
     try:
         # Get commits by project
-        api_response = api_instance.get_commits_by_project(project_id)
+        api_response = api_instance.get_commits_by_project(project_id, page_after=page_after, page_before=page_before, page_size=page_size)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling CommitApi->get_commits_by_project: %s\n" % e)
@@ -115,6 +118,9 @@ with sysml_v2_api_client.ApiClient() as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | [**str**](.md)| ID of the project | 
+ **page_after** | **str**| Page after | [optional] 
+ **page_before** | **str**| Page before | [optional] 
+ **page_size** | **int**| Page size | [optional] 
 
 ### Return type
 

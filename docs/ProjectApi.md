@@ -74,7 +74,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_projects**
-> list[Project] get_projects()
+> list[Project] get_projects(page_after=page_after, page_before=page_before, page_size=page_size)
 
 Get projects
 
@@ -97,17 +97,25 @@ configuration = sysml_v2_api_client.Configuration(
 with sysml_v2_api_client.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = sysml_v2_api_client.ProjectApi(api_client)
-    
+    page_after = 'page_after_example' # str | Page after (optional)
+page_before = 'page_before_example' # str | Page before (optional)
+page_size = 56 # int | Page size (optional)
+
     try:
         # Get projects
-        api_response = api_instance.get_projects()
+        api_response = api_instance.get_projects(page_after=page_after, page_before=page_before, page_size=page_size)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ProjectApi->get_projects: %s\n" % e)
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page_after** | **str**| Page after | [optional] 
+ **page_before** | **str**| Page before | [optional] 
+ **page_size** | **int**| Page size | [optional] 
 
 ### Return type
 

@@ -46,6 +46,9 @@ class QueryApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str project_id: ID of the project (required)
+        :param str page_after: Page after
+        :param str page_before: Page before
+        :param int page_size: Page size
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -70,6 +73,9 @@ class QueryApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str project_id: ID of the project (required)
+        :param str page_after: Page after
+        :param str page_before: Page before
+        :param int page_size: Page size
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -87,7 +93,10 @@ class QueryApi(object):
         local_var_params = locals()
 
         all_params = [
-            'project_id'
+            'project_id',
+            'page_after',
+            'page_before',
+            'page_size'
         ]
         all_params.extend(
             [
@@ -118,6 +127,12 @@ class QueryApi(object):
             path_params['projectId'] = local_var_params['project_id']  # noqa: E501
 
         query_params = []
+        if 'page_after' in local_var_params and local_var_params['page_after'] is not None:  # noqa: E501
+            query_params.append(('page[after]', local_var_params['page_after']))  # noqa: E501
+        if 'page_before' in local_var_params and local_var_params['page_before'] is not None:  # noqa: E501
+            query_params.append(('page[before]', local_var_params['page_before']))  # noqa: E501
+        if 'page_size' in local_var_params and local_var_params['page_size'] is not None:  # noqa: E501
+            query_params.append(('page[size]', local_var_params['page_size']))  # noqa: E501
 
         header_params = {}
 
@@ -374,7 +389,7 @@ class QueryApi(object):
             body_params = local_var_params['body']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/ld+json', 'application/json'])  # noqa: E501
+            ['application/json', 'application/ld+json'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -504,7 +519,7 @@ class QueryApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/ld+json', 'application/json'])  # noqa: E501
+            ['application/json', 'application/ld+json'])  # noqa: E501
 
         # Authentication setting
         auth_settings = []  # noqa: E501
@@ -632,7 +647,7 @@ class QueryApi(object):
             body_params = local_var_params['body']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/ld+json', 'application/json'])  # noqa: E501
+            ['application/json', 'application/ld+json'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
