@@ -13,7 +13,7 @@
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "sysml-v2-api-client"
-VERSION = "2021-03"
+VERSION = "2021-04"
 # To install the library, run the following
 #
 # python setup.py install

@@ -48,10 +48,10 @@ class TestCommit(unittest.TestCase):
                             @type = 'ElementIdentity', 
                             id = '0', ), )
                     ], 
-                containing_project = sysml_v2_api_client.models.commit_containing_project.Commit_containingProject(
+                owning_project = sysml_v2_api_client.models.branch_owning_project.Branch_owningProject(
                     id = '0', ), 
                 id = '0', 
-                previous_commit = sysml_v2_api_client.models.record.Record(
+                previous_commit = sysml_v2_api_client.models.branch_head.Branch_head(
                     id = '0', )
             )
         else :

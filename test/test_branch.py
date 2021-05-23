@@ -16,11 +16,11 @@ import unittest
 import datetime
 
 import sysml_v2_api_client
-from sysml_v2_api_client.models.commit_containing_project import CommitContainingProject  # noqa: E501
+from sysml_v2_api_client.models.branch import Branch  # noqa: E501
 from sysml_v2_api_client.rest import ApiException
 
-class TestCommitContainingProject(unittest.TestCase):
-    """CommitContainingProject unit test stubs"""
+class TestBranch(unittest.TestCase):
+    """Branch unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,21 +29,27 @@ class TestCommitContainingProject(unittest.TestCase):
         pass
 
     def make_instance(self, include_optional):
-        """Test CommitContainingProject
+        """Test Branch
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # model = sysml_v2_api_client.models.commit_containing_project.CommitContainingProject()  # noqa: E501
+        # model = sysml_v2_api_client.models.branch.Branch()  # noqa: E501
         if include_optional :
-            return CommitContainingProject(
-                id = '0'
+            return Branch(
+                type = 'Branch', 
+                head = sysml_v2_api_client.models.branch_head.Branch_head(
+                    id = '0', ), 
+                owning_project = sysml_v2_api_client.models.branch_owning_project.Branch_owningProject(
+                    id = '0', ), 
+                id = '0', 
+                name = '0'
             )
         else :
-            return CommitContainingProject(
+            return Branch(
         )
 
-    def testCommitContainingProject(self):
-        """Test CommitContainingProject"""
+    def testBranch(self):
+        """Test Branch"""
         inst_req_only = self.make_instance(include_optional=False)
         inst_req_and_optional = self.make_instance(include_optional=True)
 

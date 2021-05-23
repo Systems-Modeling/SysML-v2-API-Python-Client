@@ -16,11 +16,11 @@ import unittest
 import datetime
 
 import sysml_v2_api_client
-from sysml_v2_api_client.models.query import Query  # noqa: E501
+from sysml_v2_api_client.models.branch_head import BranchHead  # noqa: E501
 from sysml_v2_api_client.rest import ApiException
 
-class TestQuery(unittest.TestCase):
-    """Query unit test stubs"""
+class TestBranchHead(unittest.TestCase):
+    """BranchHead unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,35 +29,21 @@ class TestQuery(unittest.TestCase):
         pass
 
     def make_instance(self, include_optional):
-        """Test Query
+        """Test BranchHead
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # model = sysml_v2_api_client.models.query.Query()  # noqa: E501
+        # model = sysml_v2_api_client.models.branch_head.BranchHead()  # noqa: E501
         if include_optional :
-            return Query(
-                type = 'Query', 
-                owning_project = sysml_v2_api_client.models.branch_owning_project.Branch_owningProject(
-                    id = '0', ), 
-                id = '0', 
-                scope = [
-                    sysml_v2_api_client.models.element_identity.ElementIdentity(
-                        @type = 'ElementIdentity', 
-                        id = '0', )
-                    ], 
-                select = [
-                    '0'
-                    ], 
-                where = {
-                    'key' : None
-                    }
+            return BranchHead(
+                id = '0'
             )
         else :
-            return Query(
+            return BranchHead(
         )
 
-    def testQuery(self):
-        """Test Query"""
+    def testBranchHead(self):
+        """Test BranchHead"""
         inst_req_only = self.make_instance(include_optional=False)
         inst_req_and_optional = self.make_instance(include_optional=True)
 

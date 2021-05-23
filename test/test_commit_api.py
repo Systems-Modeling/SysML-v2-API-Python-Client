@@ -42,13 +42,6 @@ class TestCommitApi(unittest.TestCase):
         """
         pass
 
-    def test_get_head_commit_by_project(self):
-        """Test case for get_head_commit_by_project
-
-        Get head commit by project  # noqa: E501
-        """
-        pass
-
     def test_post_commit_by_project(self):
         """Test case for post_commit_by_project
 
