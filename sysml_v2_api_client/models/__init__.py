@@ -14,8 +14,10 @@
 from __future__ import absolute_import
 
 # import models into model package
+from sysml_v2_api_client.models.branch import Branch
+from sysml_v2_api_client.models.branch_head import BranchHead
+from sysml_v2_api_client.models.branch_owning_project import BranchOwningProject
 from sysml_v2_api_client.models.commit import Commit
-from sysml_v2_api_client.models.commit_containing_project import CommitContainingProject
 from sysml_v2_api_client.models.composite_constraint import CompositeConstraint
 from sysml_v2_api_client.models.constraint import Constraint
 from sysml_v2_api_client.models.element import Element
@@ -26,5 +28,4 @@ from sysml_v2_api_client.models.identified import Identified
 from sysml_v2_api_client.models.primitive_constraint import PrimitiveConstraint
 from sysml_v2_api_client.models.project import Project
 from sysml_v2_api_client.models.query import Query
-from sysml_v2_api_client.models.record import Record
 from sysml_v2_api_client.models.relationship import Relationship

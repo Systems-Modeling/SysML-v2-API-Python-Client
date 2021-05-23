@@ -34,7 +34,7 @@ class Query(object):
     """
     openapi_types = {
         'type': 'str',
-        'containing_project': 'CommitContainingProject',
+        'owning_project': 'BranchOwningProject',
         'id': 'str',
         'scope': 'list[ElementIdentity]',
         'select': 'list[str]',
@@ -43,21 +43,21 @@ class Query(object):
 
     attribute_map = {
         'type': '@type',
-        'containing_project': 'containingProject',
+        'owning_project': 'owningProject',
         'id': 'id',
         'scope': 'scope',
         'select': 'select',
         'where': 'where'
     }
 
-    def __init__(self, type=None, containing_project=None, id=None, scope=None, select=None, where=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, type=None, owning_project=None, id=None, scope=None, select=None, where=None, local_vars_configuration=None):  # noqa: E501
         """Query - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._type = None
-        self._containing_project = None
+        self._owning_project = None
         self._id = None
         self._scope = None
         self._select = None
@@ -66,8 +66,8 @@ class Query(object):
 
         if type is not None:
             self.type = type
-        if containing_project is not None:
-            self.containing_project = containing_project
+        if owning_project is not None:
+            self.owning_project = owning_project
         if id is not None:
             self.id = id
         if scope is not None:
@@ -105,25 +105,25 @@ class Query(object):
         self._type = type
 
     @property
-    def containing_project(self):
-        """Gets the containing_project of this Query.  # noqa: E501
+    def owning_project(self):
+        """Gets the owning_project of this Query.  # noqa: E501
 
 
-        :return: The containing_project of this Query.  # noqa: E501
-        :rtype: CommitContainingProject
+        :return: The owning_project of this Query.  # noqa: E501
+        :rtype: BranchOwningProject
         """
-        return self._containing_project
+        return self._owning_project
 
-    @containing_project.setter
-    def containing_project(self, containing_project):
-        """Sets the containing_project of this Query.
+    @owning_project.setter
+    def owning_project(self, owning_project):
+        """Sets the owning_project of this Query.
 
 
-        :param containing_project: The containing_project of this Query.  # noqa: E501
-        :type: CommitContainingProject
+        :param owning_project: The owning_project of this Query.  # noqa: E501
+        :type: BranchOwningProject
         """
 
-        self._containing_project = containing_project
+        self._owning_project = owning_project
 
     @property
     def id(self):

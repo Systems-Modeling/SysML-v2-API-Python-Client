@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | **str** |  | [optional] 
-**containing_project** | [**CommitContainingProject**](CommitContainingProject.md) |  | [optional] 
+**owning_project** | [**BranchOwningProject**](BranchOwningProject.md) |  | [optional] 
 **id** | **str** |  | [optional] 
 **scope** | [**list[ElementIdentity]**](ElementIdentity.md) |  | [optional] 
 **select** | **list[str]** |  | [optional] 
