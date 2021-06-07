@@ -34,6 +34,7 @@ class Project(object):
     """
     openapi_types = {
         'type': 'str',
+        'default_branch': 'ProjectDefaultBranch',
         'description': 'str',
         'id': 'str',
         'name': 'str'
@@ -41,18 +42,20 @@ class Project(object):
 
     attribute_map = {
         'type': '@type',
+        'default_branch': 'defaultBranch',
         'description': 'description',
         'id': 'id',
         'name': 'name'
     }
 
-    def __init__(self, type=None, description=None, id=None, name=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, type=None, default_branch=None, description=None, id=None, name=None, local_vars_configuration=None):  # noqa: E501
         """Project - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._type = None
+        self._default_branch = None
         self._description = None
         self._id = None
         self._name = None
@@ -60,6 +63,8 @@ class Project(object):
 
         if type is not None:
             self.type = type
+        if default_branch is not None:
+            self.default_branch = default_branch
         if description is not None:
             self.description = description
         if id is not None:
@@ -93,6 +98,27 @@ class Project(object):
             )
 
         self._type = type
+
+    @property
+    def default_branch(self):
+        """Gets the default_branch of this Project.  # noqa: E501
+
+
+        :return: The default_branch of this Project.  # noqa: E501
+        :rtype: ProjectDefaultBranch
+        """
+        return self._default_branch
+
+    @default_branch.setter
+    def default_branch(self, default_branch):
+        """Sets the default_branch of this Project.
+
+
+        :param default_branch: The default_branch of this Project.  # noqa: E501
+        :type: ProjectDefaultBranch
+        """
+
+        self._default_branch = default_branch
 
     @property
     def description(self):
