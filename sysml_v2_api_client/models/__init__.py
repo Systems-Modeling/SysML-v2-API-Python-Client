@@ -27,5 +27,6 @@ from sysml_v2_api_client.models.error import Error
 from sysml_v2_api_client.models.identified import Identified
 from sysml_v2_api_client.models.primitive_constraint import PrimitiveConstraint
 from sysml_v2_api_client.models.project import Project
+from sysml_v2_api_client.models.project_default_branch import ProjectDefaultBranch
 from sysml_v2_api_client.models.query import Query
 from sysml_v2_api_client.models.relationship import Relationship
