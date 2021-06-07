@@ -16,11 +16,11 @@ import unittest
 import datetime
 
 import sysml_v2_api_client
-from sysml_v2_api_client.models.project import Project  # noqa: E501
+from sysml_v2_api_client.models.constraint import Constraint  # noqa: E501
 from sysml_v2_api_client.rest import ApiException
 
-class TestProject(unittest.TestCase):
-    """Project unit test stubs"""
+class TestConstraint(unittest.TestCase):
+    """Constraint unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,24 +29,22 @@ class TestProject(unittest.TestCase):
         pass
 
     def make_instance(self, include_optional):
-        """Test Project
+        """Test Constraint
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # model = sysml_v2_api_client.models.project.Project()  # noqa: E501
+        # model = sysml_v2_api_client.models.constraint.Constraint()  # noqa: E501
         if include_optional :
-            return Project(
-                type = 'Project', 
-                description = '0', 
-                id = '0', 
-                name = '0'
+            return Constraint(
+                type = 'PrimitiveConstraint'
             )
         else :
-            return Project(
+            return Constraint(
+                type = 'PrimitiveConstraint',
         )
 
-    def testProject(self):
-        """Test Project"""
+    def testConstraint(self):
+        """Test Constraint"""
         inst_req_only = self.make_instance(include_optional=False)
         inst_req_and_optional = self.make_instance(include_optional=True)
 

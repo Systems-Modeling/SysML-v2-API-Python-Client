@@ -16,11 +16,11 @@ import unittest
 import datetime
 
 import sysml_v2_api_client
-from sysml_v2_api_client.models.project import Project  # noqa: E501
+from sysml_v2_api_client.models.branch_head import BranchHead  # noqa: E501
 from sysml_v2_api_client.rest import ApiException
 
-class TestProject(unittest.TestCase):
-    """Project unit test stubs"""
+class TestBranchHead(unittest.TestCase):
+    """BranchHead unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,24 +29,21 @@ class TestProject(unittest.TestCase):
         pass
 
     def make_instance(self, include_optional):
-        """Test Project
+        """Test BranchHead
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # model = sysml_v2_api_client.models.project.Project()  # noqa: E501
+        # model = sysml_v2_api_client.models.branch_head.BranchHead()  # noqa: E501
         if include_optional :
-            return Project(
-                type = 'Project', 
-                description = '0', 
-                id = '0', 
-                name = '0'
+            return BranchHead(
+                id = '0'
             )
         else :
-            return Project(
+            return BranchHead(
         )
 
-    def testProject(self):
-        """Test Project"""
+    def testBranchHead(self):
+        """Test BranchHead"""
         inst_req_only = self.make_instance(include_optional=False)
         inst_req_and_optional = self.make_instance(include_optional=True)
 

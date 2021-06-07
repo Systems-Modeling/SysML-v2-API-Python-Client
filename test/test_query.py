@@ -16,11 +16,11 @@ import unittest
 import datetime
 
 import sysml_v2_api_client
-from sysml_v2_api_client.models.commit import Commit  # noqa: E501
+from sysml_v2_api_client.models.query import Query  # noqa: E501
 from sysml_v2_api_client.rest import ApiException
 
-class TestCommit(unittest.TestCase):
-    """Commit unit test stubs"""
+class TestQuery(unittest.TestCase):
+    """Query unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,37 +29,35 @@ class TestCommit(unittest.TestCase):
         pass
 
     def make_instance(self, include_optional):
-        """Test Commit
+        """Test Query
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # model = sysml_v2_api_client.models.commit.Commit()  # noqa: E501
+        # model = sysml_v2_api_client.models.query.Query()  # noqa: E501
         if include_optional :
-            return Commit(
-                type = 'Commit', 
-                change = [
-                    sysml_v2_api_client.models.element_version.ElementVersion(
-                        @type = 'ElementVersion', 
-                        data = {
-                            'key' : None
-                            }, 
-                        id = '0', 
-                        identity = sysml_v2_api_client.models.element_identity.ElementIdentity(
-                            @type = 'ElementIdentity', 
-                            id = '0', ), )
-                    ], 
+            return Query(
+                type = 'Query', 
                 owning_project = sysml_v2_api_client.models.branch_owning_project.Branch_owningProject(
                     id = '0', ), 
                 id = '0', 
-                previous_commit = sysml_v2_api_client.models.branch_head.Branch_head(
-                    id = '0', )
+                scope = [
+                    sysml_v2_api_client.models.element_identity.ElementIdentity(
+                        @type = 'ElementIdentity', 
+                        id = '0', )
+                    ], 
+                select = [
+                    '0'
+                    ], 
+                where = {
+                    'key' : None
+                    }
             )
         else :
-            return Commit(
+            return Query(
         )
 
-    def testCommit(self):
-        """Test Commit"""
+    def testQuery(self):
+        """Test Query"""
         inst_req_only = self.make_instance(include_optional=False)
         inst_req_and_optional = self.make_instance(include_optional=True)
 

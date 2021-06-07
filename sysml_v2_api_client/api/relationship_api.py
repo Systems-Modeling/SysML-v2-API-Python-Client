@@ -18,7 +18,7 @@ import re  # noqa: F401
 import six
 
 from sysml_v2_api_client.api_client import ApiClient
-from sysml_v2_api_client.exceptions import (
+from sysml_v2_api_client.exceptions import (  # noqa: F401
     ApiTypeError,
     ApiValueError
 )
@@ -37,7 +37,7 @@ class RelationshipApi(object):
         self.api_client = api_client
 
     def get_relationships_by_project_commit_related_element(self, project_id, commit_id, related_element_id, **kwargs):  # noqa: E501
-        """Get relationships by project, commit, and related element.  # noqa: E501
+        """Get relationships by project, commit, and related element  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -49,6 +49,9 @@ class RelationshipApi(object):
         :param str commit_id: ID of the commit (required)
         :param str related_element_id: ID of the related element (required)
         :param str direction: Filter for relationships that are incoming (in), outgoing (out), or both relative to the related element
+        :param str page_after: Page after
+        :param str page_before: Page before
+        :param int page_size: Page size
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -64,7 +67,7 @@ class RelationshipApi(object):
         return self.get_relationships_by_project_commit_related_element_with_http_info(project_id, commit_id, related_element_id, **kwargs)  # noqa: E501
 
     def get_relationships_by_project_commit_related_element_with_http_info(self, project_id, commit_id, related_element_id, **kwargs):  # noqa: E501
-        """Get relationships by project, commit, and related element.  # noqa: E501
+        """Get relationships by project, commit, and related element  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -76,6 +79,9 @@ class RelationshipApi(object):
         :param str commit_id: ID of the commit (required)
         :param str related_element_id: ID of the related element (required)
         :param str direction: Filter for relationships that are incoming (in), outgoing (out), or both relative to the related element
+        :param str page_after: Page after
+        :param str page_before: Page before
+        :param int page_size: Page size
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -92,11 +98,23 @@ class RelationshipApi(object):
 
         local_var_params = locals()
 
-        all_params = ['project_id', 'commit_id', 'related_element_id', 'direction']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = [
+            'project_id',
+            'commit_id',
+            'related_element_id',
+            'direction',
+            'page_after',
+            'page_before',
+            'page_size'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
 
         for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
@@ -132,6 +150,12 @@ class RelationshipApi(object):
         query_params = []
         if 'direction' in local_var_params and local_var_params['direction'] is not None:  # noqa: E501
             query_params.append(('direction', local_var_params['direction']))  # noqa: E501
+        if 'page_after' in local_var_params and local_var_params['page_after'] is not None:  # noqa: E501
+            query_params.append(('page[after]', local_var_params['page_after']))  # noqa: E501
+        if 'page_before' in local_var_params and local_var_params['page_before'] is not None:  # noqa: E501
+            query_params.append(('page[before]', local_var_params['page_before']))  # noqa: E501
+        if 'page_size' in local_var_params and local_var_params['page_size'] is not None:  # noqa: E501
+            query_params.append(('page[size]', local_var_params['page_size']))  # noqa: E501
 
         header_params = {}
 
@@ -141,7 +165,7 @@ class RelationshipApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/ld+json', 'application/json'])  # noqa: E501
+            ['application/json', 'application/ld+json'])  # noqa: E501
 
         # Authentication setting
         auth_settings = []  # noqa: E501
