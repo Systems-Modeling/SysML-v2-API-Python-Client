@@ -14,7 +14,7 @@
 
 from __future__ import absolute_import
 
-__version__ = "2021-05"
+__version__ = "2021-06"
 
 # import apis into sdk package
 from sysml_v2_api_client.api.branch_api import BranchApi

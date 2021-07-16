@@ -33,44 +33,65 @@ class Project(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'id': 'str',
         'type': 'str',
         'default_branch': 'ProjectDefaultBranch',
         'description': 'str',
-        'id': 'str',
         'name': 'str'
     }
 
     attribute_map = {
+        'id': '@id',
         'type': '@type',
         'default_branch': 'defaultBranch',
         'description': 'description',
-        'id': 'id',
         'name': 'name'
     }
 
-    def __init__(self, type=None, default_branch=None, description=None, id=None, name=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, type=None, default_branch=None, description=None, name=None, local_vars_configuration=None):  # noqa: E501
         """Project - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._id = None
         self._type = None
         self._default_branch = None
         self._description = None
-        self._id = None
         self._name = None
         self.discriminator = None
 
+        if id is not None:
+            self.id = id
         if type is not None:
             self.type = type
         if default_branch is not None:
             self.default_branch = default_branch
         if description is not None:
             self.description = description
-        if id is not None:
-            self.id = id
         if name is not None:
             self.name = name
+
+    @property
+    def id(self):
+        """Gets the id of this Project.  # noqa: E501
+
+
+        :return: The id of this Project.  # noqa: E501
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this Project.
+
+
+        :param id: The id of this Project.  # noqa: E501
+        :type: str
+        """
+
+        self._id = id
 
     @property
     def type(self):
@@ -140,27 +161,6 @@ class Project(object):
         """
 
         self._description = description
-
-    @property
-    def id(self):
-        """Gets the id of this Project.  # noqa: E501
-
-
-        :return: The id of this Project.  # noqa: E501
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this Project.
-
-
-        :param id: The id of this Project.  # noqa: E501
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def name(self):

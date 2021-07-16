@@ -36,8 +36,8 @@ class TestElement(unittest.TestCase):
         # model = sysml_v2_api_client.models.element.Element()  # noqa: E501
         if include_optional :
             return Element(
-                type = '0', 
                 id = '0', 
+                type = '0', 
                 identifier = '0'
             )
         else :

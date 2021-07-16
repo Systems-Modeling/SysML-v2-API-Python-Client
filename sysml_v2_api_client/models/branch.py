@@ -33,44 +33,65 @@ class Branch(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'id': 'str',
         'type': 'str',
         'head': 'BranchHead',
         'owning_project': 'BranchOwningProject',
-        'id': 'str',
         'name': 'str'
     }
 
     attribute_map = {
+        'id': '@id',
         'type': '@type',
         'head': 'head',
         'owning_project': 'owningProject',
-        'id': 'id',
         'name': 'name'
     }
 
-    def __init__(self, type=None, head=None, owning_project=None, id=None, name=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, type=None, head=None, owning_project=None, name=None, local_vars_configuration=None):  # noqa: E501
         """Branch - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._id = None
         self._type = None
         self._head = None
         self._owning_project = None
-        self._id = None
         self._name = None
         self.discriminator = None
 
+        if id is not None:
+            self.id = id
         if type is not None:
             self.type = type
         if head is not None:
             self.head = head
         if owning_project is not None:
             self.owning_project = owning_project
-        if id is not None:
-            self.id = id
         if name is not None:
             self.name = name
+
+    @property
+    def id(self):
+        """Gets the id of this Branch.  # noqa: E501
+
+
+        :return: The id of this Branch.  # noqa: E501
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this Branch.
+
+
+        :param id: The id of this Branch.  # noqa: E501
+        :type: str
+        """
+
+        self._id = id
 
     @property
     def type(self):
@@ -140,27 +161,6 @@ class Branch(object):
         """
 
         self._owning_project = owning_project
-
-    @property
-    def id(self):
-        """Gets the id of this Branch.  # noqa: E501
-
-
-        :return: The id of this Branch.  # noqa: E501
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this Branch.
-
-
-        :param id: The id of this Branch.  # noqa: E501
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def name(self):

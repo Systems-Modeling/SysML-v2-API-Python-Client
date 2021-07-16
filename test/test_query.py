@@ -36,14 +36,14 @@ class TestQuery(unittest.TestCase):
         # model = sysml_v2_api_client.models.query.Query()  # noqa: E501
         if include_optional :
             return Query(
+                id = '0', 
                 type = 'Query', 
                 owning_project = sysml_v2_api_client.models.branch_owning_project.Branch_owningProject(
-                    id = '0', ), 
-                id = '0', 
+                    @id = '0', ), 
                 scope = [
                     sysml_v2_api_client.models.element_identity.ElementIdentity(
-                        @type = 'ElementIdentity', 
-                        id = '0', )
+                        @id = '0', 
+                        @type = 'ElementIdentity', )
                     ], 
                 select = [
                     '0'
