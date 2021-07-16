@@ -36,14 +36,14 @@ class TestElementVersion(unittest.TestCase):
         # model = sysml_v2_api_client.models.element_version.ElementVersion()  # noqa: E501
         if include_optional :
             return ElementVersion(
+                id = '0', 
                 type = 'ElementVersion', 
                 data = {
                     'key' : None
                     }, 
-                id = '0', 
                 identity = sysml_v2_api_client.models.element_identity.ElementIdentity(
-                    @type = 'ElementIdentity', 
-                    id = '0', )
+                    @id = '0', 
+                    @type = 'ElementIdentity', )
             )
         else :
             return ElementVersion(

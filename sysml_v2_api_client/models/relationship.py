@@ -33,65 +33,44 @@ class Relationship(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'type': 'str',
         'id': 'str',
+        'type': 'str',
         'identifier': 'str',
         'source': 'list[Identified]',
         'target': 'list[Identified]'
     }
 
     attribute_map = {
-        'type': '@type',
         'id': '@id',
+        'type': '@type',
         'identifier': 'identifier',
         'source': 'source',
         'target': 'target'
     }
 
-    def __init__(self, type=None, id=None, identifier=None, source=None, target=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, type=None, identifier=None, source=None, target=None, local_vars_configuration=None):  # noqa: E501
         """Relationship - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._type = None
         self._id = None
+        self._type = None
         self._identifier = None
         self._source = None
         self._target = None
         self.discriminator = None
 
-        if type is not None:
-            self.type = type
         if id is not None:
             self.id = id
+        if type is not None:
+            self.type = type
         if identifier is not None:
             self.identifier = identifier
         if source is not None:
             self.source = source
         if target is not None:
             self.target = target
-
-    @property
-    def type(self):
-        """Gets the type of this Relationship.  # noqa: E501
-
-
-        :return: The type of this Relationship.  # noqa: E501
-        :rtype: str
-        """
-        return self._type
-
-    @type.setter
-    def type(self, type):
-        """Sets the type of this Relationship.
-
-
-        :param type: The type of this Relationship.  # noqa: E501
-        :type: str
-        """
-
-        self._type = type
 
     @property
     def id(self):
@@ -113,6 +92,27 @@ class Relationship(object):
         """
 
         self._id = id
+
+    @property
+    def type(self):
+        """Gets the type of this Relationship.  # noqa: E501
+
+
+        :return: The type of this Relationship.  # noqa: E501
+        :rtype: str
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """Sets the type of this Relationship.
+
+
+        :param type: The type of this Relationship.  # noqa: E501
+        :type: str
+        """
+
+        self._type = type
 
     @property
     def identifier(self):

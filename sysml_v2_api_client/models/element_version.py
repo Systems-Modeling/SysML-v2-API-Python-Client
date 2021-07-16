@@ -33,39 +33,60 @@ class ElementVersion(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'id': 'str',
         'type': 'str',
         'data': 'Element',
-        'id': 'str',
         'identity': 'ElementIdentity'
     }
 
     attribute_map = {
+        'id': '@id',
         'type': '@type',
         'data': 'data',
-        'id': 'id',
         'identity': 'identity'
     }
 
-    def __init__(self, type=None, data=None, id=None, identity=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, type=None, data=None, identity=None, local_vars_configuration=None):  # noqa: E501
         """ElementVersion - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._id = None
         self._type = None
         self._data = None
-        self._id = None
         self._identity = None
         self.discriminator = None
 
+        if id is not None:
+            self.id = id
         if type is not None:
             self.type = type
         if data is not None:
             self.data = data
-        if id is not None:
-            self.id = id
         if identity is not None:
             self.identity = identity
+
+    @property
+    def id(self):
+        """Gets the id of this ElementVersion.  # noqa: E501
+
+
+        :return: The id of this ElementVersion.  # noqa: E501
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this ElementVersion.
+
+
+        :param id: The id of this ElementVersion.  # noqa: E501
+        :type: str
+        """
+
+        self._id = id
 
     @property
     def type(self):
@@ -114,27 +135,6 @@ class ElementVersion(object):
         """
 
         self._data = data
-
-    @property
-    def id(self):
-        """Gets the id of this ElementVersion.  # noqa: E501
-
-
-        :return: The id of this ElementVersion.  # noqa: E501
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this ElementVersion.
-
-
-        :param id: The id of this ElementVersion.  # noqa: E501
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def identity(self):

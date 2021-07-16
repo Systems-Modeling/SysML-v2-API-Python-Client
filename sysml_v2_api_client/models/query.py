@@ -33,49 +33,70 @@ class Query(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'id': 'str',
         'type': 'str',
         'owning_project': 'BranchOwningProject',
-        'id': 'str',
         'scope': 'list[ElementIdentity]',
         'select': 'list[str]',
         'where': 'Constraint'
     }
 
     attribute_map = {
+        'id': '@id',
         'type': '@type',
         'owning_project': 'owningProject',
-        'id': 'id',
         'scope': 'scope',
         'select': 'select',
         'where': 'where'
     }
 
-    def __init__(self, type=None, owning_project=None, id=None, scope=None, select=None, where=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, type=None, owning_project=None, scope=None, select=None, where=None, local_vars_configuration=None):  # noqa: E501
         """Query - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._id = None
         self._type = None
         self._owning_project = None
-        self._id = None
         self._scope = None
         self._select = None
         self._where = None
         self.discriminator = None
 
+        if id is not None:
+            self.id = id
         if type is not None:
             self.type = type
         if owning_project is not None:
             self.owning_project = owning_project
-        if id is not None:
-            self.id = id
         if scope is not None:
             self.scope = scope
         if select is not None:
             self.select = select
         if where is not None:
             self.where = where
+
+    @property
+    def id(self):
+        """Gets the id of this Query.  # noqa: E501
+
+
+        :return: The id of this Query.  # noqa: E501
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this Query.
+
+
+        :param id: The id of this Query.  # noqa: E501
+        :type: str
+        """
+
+        self._id = id
 
     @property
     def type(self):
@@ -124,27 +145,6 @@ class Query(object):
         """
 
         self._owning_project = owning_project
-
-    @property
-    def id(self):
-        """Gets the id of this Query.  # noqa: E501
-
-
-        :return: The id of this Query.  # noqa: E501
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this Query.
-
-
-        :param id: The id of this Query.  # noqa: E501
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def scope(self):

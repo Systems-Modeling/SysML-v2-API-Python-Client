@@ -33,29 +33,50 @@ class ElementIdentity(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'type': 'str',
-        'id': 'str'
+        'id': 'str',
+        'type': 'str'
     }
 
     attribute_map = {
-        'type': '@type',
-        'id': 'id'
+        'id': '@id',
+        'type': '@type'
     }
 
-    def __init__(self, type=None, id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, type=None, local_vars_configuration=None):  # noqa: E501
         """ElementIdentity - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._type = None
         self._id = None
+        self._type = None
         self.discriminator = None
 
-        if type is not None:
-            self.type = type
         if id is not None:
             self.id = id
+        if type is not None:
+            self.type = type
+
+    @property
+    def id(self):
+        """Gets the id of this ElementIdentity.  # noqa: E501
+
+
+        :return: The id of this ElementIdentity.  # noqa: E501
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this ElementIdentity.
+
+
+        :param id: The id of this ElementIdentity.  # noqa: E501
+        :type: str
+        """
+
+        self._id = id
 
     @property
     def type(self):
@@ -83,27 +104,6 @@ class ElementIdentity(object):
             )
 
         self._type = type
-
-    @property
-    def id(self):
-        """Gets the id of this ElementIdentity.  # noqa: E501
-
-
-        :return: The id of this ElementIdentity.  # noqa: E501
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this ElementIdentity.
-
-
-        :param id: The id of this ElementIdentity.  # noqa: E501
-        :type: str
-        """
-
-        self._id = id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

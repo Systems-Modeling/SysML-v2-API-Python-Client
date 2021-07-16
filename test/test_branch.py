@@ -36,12 +36,12 @@ class TestBranch(unittest.TestCase):
         # model = sysml_v2_api_client.models.branch.Branch()  # noqa: E501
         if include_optional :
             return Branch(
+                id = '0', 
                 type = 'Branch', 
                 head = sysml_v2_api_client.models.branch_head.Branch_head(
-                    id = '0', ), 
+                    @id = '0', ), 
                 owning_project = sysml_v2_api_client.models.branch_owning_project.Branch_owningProject(
-                    id = '0', ), 
-                id = '0', 
+                    @id = '0', ), 
                 name = '0'
             )
         else :

@@ -37,7 +37,7 @@ class BranchHead(object):
     }
 
     attribute_map = {
-        'id': 'id'
+        'id': '@id'
     }
 
     def __init__(self, id=None, local_vars_configuration=None):  # noqa: E501
