@@ -36,11 +36,11 @@ class TestProject(unittest.TestCase):
         # model = sysml_v2_api_client.models.project.Project()  # noqa: E501
         if include_optional :
             return Project(
+                id = '0', 
                 type = 'Project', 
                 default_branch = sysml_v2_api_client.models.project_default_branch.Project_defaultBranch(
-                    id = '0', ), 
+                    @id = '0', ), 
                 description = '0', 
-                id = '0', 
                 name = '0'
             )
         else :

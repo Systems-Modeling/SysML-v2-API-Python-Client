@@ -36,8 +36,8 @@ class TestElementIdentity(unittest.TestCase):
         # model = sysml_v2_api_client.models.element_identity.ElementIdentity()  # noqa: E501
         if include_optional :
             return ElementIdentity(
-                type = 'ElementIdentity', 
-                id = '0'
+                id = '0', 
+                type = 'ElementIdentity'
             )
         else :
             return ElementIdentity(

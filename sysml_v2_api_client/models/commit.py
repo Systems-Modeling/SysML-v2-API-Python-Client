@@ -33,44 +33,65 @@ class Commit(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'id': 'str',
         'type': 'str',
         'change': 'list[ElementVersion]',
         'owning_project': 'BranchOwningProject',
-        'id': 'str',
         'previous_commit': 'BranchHead'
     }
 
     attribute_map = {
+        'id': '@id',
         'type': '@type',
         'change': 'change',
         'owning_project': 'owningProject',
-        'id': 'id',
         'previous_commit': 'previousCommit'
     }
 
-    def __init__(self, type=None, change=None, owning_project=None, id=None, previous_commit=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, type=None, change=None, owning_project=None, previous_commit=None, local_vars_configuration=None):  # noqa: E501
         """Commit - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._id = None
         self._type = None
         self._change = None
         self._owning_project = None
-        self._id = None
         self._previous_commit = None
         self.discriminator = None
 
+        if id is not None:
+            self.id = id
         if type is not None:
             self.type = type
         if change is not None:
             self.change = change
         if owning_project is not None:
             self.owning_project = owning_project
-        if id is not None:
-            self.id = id
         if previous_commit is not None:
             self.previous_commit = previous_commit
+
+    @property
+    def id(self):
+        """Gets the id of this Commit.  # noqa: E501
+
+
+        :return: The id of this Commit.  # noqa: E501
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this Commit.
+
+
+        :param id: The id of this Commit.  # noqa: E501
+        :type: str
+        """
+
+        self._id = id
 
     @property
     def type(self):
@@ -140,27 +161,6 @@ class Commit(object):
         """
 
         self._owning_project = owning_project
-
-    @property
-    def id(self):
-        """Gets the id of this Commit.  # noqa: E501
-
-
-        :return: The id of this Commit.  # noqa: E501
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this Commit.
-
-
-        :param id: The id of this Commit.  # noqa: E501
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def previous_commit(self):

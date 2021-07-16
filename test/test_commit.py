@@ -36,23 +36,23 @@ class TestCommit(unittest.TestCase):
         # model = sysml_v2_api_client.models.commit.Commit()  # noqa: E501
         if include_optional :
             return Commit(
+                id = '0', 
                 type = 'Commit', 
                 change = [
                     sysml_v2_api_client.models.element_version.ElementVersion(
+                        @id = '0', 
                         @type = 'ElementVersion', 
                         data = {
                             'key' : None
                             }, 
-                        id = '0', 
                         identity = sysml_v2_api_client.models.element_identity.ElementIdentity(
-                            @type = 'ElementIdentity', 
-                            id = '0', ), )
+                            @id = '0', 
+                            @type = 'ElementIdentity', ), )
                     ], 
                 owning_project = sysml_v2_api_client.models.branch_owning_project.Branch_owningProject(
-                    id = '0', ), 
-                id = '0', 
+                    @id = '0', ), 
                 previous_commit = sysml_v2_api_client.models.branch_head.Branch_head(
-                    id = '0', )
+                    @id = '0', )
             )
         else :
             return Commit(

@@ -36,8 +36,8 @@ class TestRelationship(unittest.TestCase):
         # model = sysml_v2_api_client.models.relationship.Relationship()  # noqa: E501
         if include_optional :
             return Relationship(
-                type = '0', 
                 id = '0', 
+                type = '0', 
                 identifier = '0', 
                 source = [
                     sysml_v2_api_client.models.identified.Identified(

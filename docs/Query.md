@@ -3,9 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **str** |  | [optional] 
 **type** | **str** |  | [optional] 
 **owning_project** | [**BranchOwningProject**](BranchOwningProject.md) |  | [optional] 
-**id** | **str** |  | [optional] 
 **scope** | [**list[ElementIdentity]**](ElementIdentity.md) |  | [optional] 
 **select** | **list[str]** |  | [optional] 
 **where** | [**Constraint**](Constraint.md) |  | [optional] 
