@@ -16,11 +16,11 @@ import unittest
 import datetime
 
 import sysml_v2_api_client
-from sysml_v2_api_client.models.query import Query  # noqa: E501
+from sysml_v2_api_client.models.data_version import DataVersion  # noqa: E501
 from sysml_v2_api_client.rest import ApiException
 
-class TestQuery(unittest.TestCase):
-    """Query unit test stubs"""
+class TestDataVersion(unittest.TestCase):
+    """DataVersion unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,35 +29,28 @@ class TestQuery(unittest.TestCase):
         pass
 
     def make_instance(self, include_optional):
-        """Test Query
+        """Test DataVersion
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # model = sysml_v2_api_client.models.query.Query()  # noqa: E501
+        # model = sysml_v2_api_client.models.data_version.DataVersion()  # noqa: E501
         if include_optional :
-            return Query(
+            return DataVersion(
                 id = '0', 
-                type = 'Query', 
-                owning_project = sysml_v2_api_client.models.branch_owning_project.Branch_owningProject(
-                    @id = '0', ), 
-                scope = [
-                    sysml_v2_api_client.models.data_identity.DataIdentity(
-                        @id = '0', 
-                        @type = 'DataIdentity', )
-                    ], 
-                select = [
-                    '0'
-                    ], 
-                where = {
+                type = 'DataVersion', 
+                payload = {
                     'key' : None
-                    }
+                    }, 
+                identity = sysml_v2_api_client.models.data_identity.DataIdentity(
+                    @id = '0', 
+                    @type = 'DataIdentity', )
             )
         else :
-            return Query(
+            return DataVersion(
         )
 
-    def testQuery(self):
-        """Test Query"""
+    def testDataVersion(self):
+        """Test DataVersion"""
         inst_req_only = self.make_instance(include_optional=False)
         inst_req_and_optional = self.make_instance(include_optional=True)
 

@@ -35,7 +35,7 @@ class Commit(object):
     openapi_types = {
         'id': 'str',
         'type': 'str',
-        'change': 'list[ElementVersion]',
+        'change': 'list[DataVersion]',
         'owning_project': 'BranchOwningProject',
         'previous_commit': 'BranchHead'
     }
@@ -126,7 +126,7 @@ class Commit(object):
 
 
         :return: The change of this Commit.  # noqa: E501
-        :rtype: list[ElementVersion]
+        :rtype: list[DataVersion]
         """
         return self._change
 
@@ -136,7 +136,7 @@ class Commit(object):
 
 
         :param change: The change of this Commit.  # noqa: E501
-        :type: list[ElementVersion]
+        :type: list[DataVersion]
         """
 
         self._change = change

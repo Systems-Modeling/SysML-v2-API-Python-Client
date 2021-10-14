@@ -39,15 +39,15 @@ class TestCommit(unittest.TestCase):
                 id = '0', 
                 type = 'Commit', 
                 change = [
-                    sysml_v2_api_client.models.element_version.ElementVersion(
+                    sysml_v2_api_client.models.data_version.DataVersion(
                         @id = '0', 
-                        @type = 'ElementVersion', 
-                        data = {
+                        @type = 'DataVersion', 
+                        payload = {
                             'key' : None
                             }, 
-                        identity = sysml_v2_api_client.models.element_identity.ElementIdentity(
+                        identity = sysml_v2_api_client.models.data_identity.DataIdentity(
                             @id = '0', 
-                            @type = 'ElementIdentity', ), )
+                            @type = 'DataIdentity', ), )
                     ], 
                 owning_project = sysml_v2_api_client.models.branch_owning_project.Branch_owningProject(
                     @id = '0', ), 

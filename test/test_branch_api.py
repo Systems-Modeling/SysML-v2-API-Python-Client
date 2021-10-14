@@ -28,6 +28,13 @@ class TestBranchApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_delete_branch_by_project_and_id(self):
+        """Test case for delete_branch_by_project_and_id
+
+        Delete branch by project and ID  # noqa: E501
+        """
+        pass
+
     def test_get_branches_by_project(self):
         """Test case for get_branches_by_project
 
