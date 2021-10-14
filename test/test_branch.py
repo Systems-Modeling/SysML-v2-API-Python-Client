@@ -40,9 +40,12 @@ class TestBranch(unittest.TestCase):
                 type = 'Branch', 
                 head = sysml_v2_api_client.models.branch_head.Branch_head(
                     @id = '0', ), 
+                name = '0', 
                 owning_project = sysml_v2_api_client.models.branch_owning_project.Branch_owningProject(
                     @id = '0', ), 
-                name = '0'
+                referenced_commit = sysml_v2_api_client.models.branch_head.Branch_head(
+                    @id = '0', ), 
+                timestamp = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f')
             )
         else :
             return Branch(
