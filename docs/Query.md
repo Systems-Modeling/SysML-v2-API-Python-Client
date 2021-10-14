@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **id** | **str** |  | [optional] 
 **type** | **str** |  | [optional] 
 **owning_project** | [**BranchOwningProject**](BranchOwningProject.md) |  | [optional] 
-**scope** | [**list[ElementIdentity]**](ElementIdentity.md) |  | [optional] 
+**scope** | [**list[DataIdentity]**](DataIdentity.md) |  | [optional] 
 **select** | **list[str]** |  | [optional] 
 **where** | [**Constraint**](Constraint.md) |  | [optional] 
 

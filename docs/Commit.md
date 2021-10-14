@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | [optional] 
 **type** | **str** |  | [optional] 
-**change** | [**list[ElementVersion]**](ElementVersion.md) |  | [optional] 
+**change** | [**list[DataVersion]**](DataVersion.md) |  | [optional] 
 **owning_project** | [**BranchOwningProject**](BranchOwningProject.md) |  | [optional] 
 **previous_commit** | [**BranchHead**](BranchHead.md) |  | [optional] 
 

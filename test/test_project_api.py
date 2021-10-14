@@ -28,6 +28,13 @@ class TestProjectApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_delete_project_by_id(self):
+        """Test case for delete_project_by_id
+
+        Delete project by ID  # noqa: E501
+        """
+        pass
+
     def test_get_project_by_id(self):
         """Test case for get_project_by_id
 
@@ -46,6 +53,13 @@ class TestProjectApi(unittest.TestCase):
         """Test case for post_project
 
         Create project  # noqa: E501
+        """
+        pass
+
+    def test_put_project_by_id(self):
+        """Test case for put_project_by_id
+
+        Update project by ID  # noqa: E501
         """
         pass
 

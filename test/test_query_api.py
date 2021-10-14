@@ -28,6 +28,13 @@ class TestQueryApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_delete_query_by_project_and_id(self):
+        """Test case for delete_query_by_project_and_id
+
+        Delete query by project and ID  # noqa: E501
+        """
+        pass
+
     def test_get_queries_by_project(self):
         """Test case for get_queries_by_project
 

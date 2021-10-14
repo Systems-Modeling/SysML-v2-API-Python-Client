@@ -16,11 +16,11 @@ import unittest
 import datetime
 
 import sysml_v2_api_client
-from sysml_v2_api_client.models.element_version import ElementVersion  # noqa: E501
+from sysml_v2_api_client.models.data import Data  # noqa: E501
 from sysml_v2_api_client.rest import ApiException
 
-class TestElementVersion(unittest.TestCase):
-    """ElementVersion unit test stubs"""
+class TestData(unittest.TestCase):
+    """Data unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,28 +29,23 @@ class TestElementVersion(unittest.TestCase):
         pass
 
     def make_instance(self, include_optional):
-        """Test ElementVersion
+        """Test Data
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # model = sysml_v2_api_client.models.element_version.ElementVersion()  # noqa: E501
+        # model = sysml_v2_api_client.models.data.Data()  # noqa: E501
         if include_optional :
-            return ElementVersion(
+            return Data(
                 id = '0', 
-                type = 'ElementVersion', 
-                data = {
-                    'key' : None
-                    }, 
-                identity = sysml_v2_api_client.models.element_identity.ElementIdentity(
-                    @id = '0', 
-                    @type = 'ElementIdentity', )
+                type = '0'
             )
         else :
-            return ElementVersion(
+            return Data(
+                type = '0',
         )
 
-    def testElementVersion(self):
-        """Test ElementVersion"""
+    def testData(self):
+        """Test Data"""
         inst_req_only = self.make_instance(include_optional=False)
         inst_req_and_optional = self.make_instance(include_optional=True)
 
